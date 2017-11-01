@@ -1,0 +1,194 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#F4F6F6"
+    tools:context="com.alex.helyer.mathe.ResultadoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:text="Éste es tu resultado:"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/donut_progress"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        app:donut_text_color="@color/colorPrimary"
+                        app:donut_finished_color="@color/colorPrimary"
+                        android:layout_gravity="center"
+                        app:donut_progress="50"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="5/10"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#DDD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 1"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#F77268"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 2"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 3"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#F77268"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 4"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 5"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 6"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 7"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#F77268"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 8"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#79C37C"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 9"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:layout_margin="0dp"
+                    android:gravity="center_vertical"
+                    android:backgroundTint="#F77268"
+                    android:textColor="#FFF"
+                    android:text="Pregunta 10"/>
+
+                <Button
+                    android:id="@+id/btnOK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="OK"/>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</LinearLayout>

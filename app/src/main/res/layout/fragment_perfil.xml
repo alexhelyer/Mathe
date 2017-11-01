@@ -1,0 +1,347 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alex.helyer.mathe.PerfilFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:layout_marginTop="40dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="fill_parent"
+                android:layout_height="268dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:background="@drawable/com_facebook_profile_picture_blank_portrait"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+
+
+            <RelativeLayout
+                android:id="@+id/floatingButttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:paddingTop="10dp">
+
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingActionButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:padding="0dp"
+                    android:paddingBottom="0dp"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="100dp"
+                     />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingActionButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="100dp"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="left"
+                    android:adjustViewBounds="false"
+                    android:clickable="true"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="100dp"
+                     />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/floatingButttons"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:id="@+id/linear1">
+
+
+                <TextView
+                    android:id="@+id/nombreEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/floatingActionButton"
+                    android:layout_gravity="left"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"
+                    android:text="Nombre:" />
+
+                <TextView
+                    android:id="@+id/nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/floatingActionButton"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear1"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:id="@+id/linear2">
+
+
+                <TextView
+                    android:id="@+id/localidadEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="left"
+                    android:layout_below="@+id/nombreEtiqueta"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"
+                    android:text="Localidad:" />
+
+                <TextView
+                    android:id="@+id/localidad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:layout_below="@+id/nombre"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/linear2"
+                android:paddingTop="10dp"
+                android:id="@+id/linear3">
+
+                <TextView
+                    android:id="@+id/edadEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/localidadEtiqueta"
+                    android:layout_gravity="left"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"
+                    android:text="Edad:" />
+
+
+
+
+                <TextView
+                    android:id="@+id/edad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="10dp"
+                    android:layout_below="@+id/localidad"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:layout_below="@+id/linear3"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:id="@+id/linear4">
+
+                <TextView
+                    android:id="@+id/usuarioEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Usuario:"
+                    android:layout_gravity="left"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/usuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="" />
+
+
+                <!-- <EditText
+                     android:id="@+id/editUsuario"
+                     android:layout_width="149dp"
+                     android:layout_height="40dp"
+                     android:layout_gravity="right"
+                     android:hint="Usuario"
+                     android:maxLines="1"
+                     android:singleLine="true"
+                     android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                     android:paddingTop="10dp"
+                     android:textSize="14sp" />
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/textInputLayout"
+                     android:layout_width="match_parent"
+                     android:layout_height="25dp"
+                     android:maxLines="1"
+                     android:singleLine="true"
+                     ></android.support.design.widget.TextInputLayout> -->
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:layout_below="@+id/linear4"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:id="@+id/linear5">
+
+                <TextView
+                    android:id="@+id/correoEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Correo:"
+                    android:layout_gravity="left"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/correo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="" />
+
+
+                <!-- <EditText
+                     android:id="@+id/editUsuario"
+                     android:layout_width="149dp"
+                     android:layout_height="40dp"
+                     android:layout_gravity="right"
+                     android:hint="Usuario"
+                     android:maxLines="1"
+                     android:singleLine="true"
+                     android:paddingLeft="10dp"
+                     android:paddingRight="10dp"
+                     android:paddingTop="10dp"
+                     android:textSize="14sp" />
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/textInputLayout"
+                     android:layout_width="match_parent"
+                     android:layout_height="25dp"
+                     android:maxLines="1"
+                     android:singleLine="true"
+                     ></android.support.design.widget.TextInputLayout> -->
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear5"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:id="@+id/linear6">
+
+
+                <TextView
+                    android:id="@+id/contraseniaEtiqueta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:text="Contraseña:"
+                    android:hint="Contraseña"
+                    android:layout_gravity="left"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/contrasenia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:inputType="textPassword"/>
+
+                <EditText
+                    android:id="@+id/editContrasenia"
+                    android:layout_width="149dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:hint="Contraseña"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="14sp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    ></android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

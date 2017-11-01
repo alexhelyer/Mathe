@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alex.helyer.mathe.InicioFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#eff0f0">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#eff0f0"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dip"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#000000"/>
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:gravity="right|center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="70dp"
+            android:text="Puntos"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"/>
+
+    </RelativeLayout>
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/itabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/iviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <!-- La suma de marginTop y heigth del tablayout tiene que ser equivalente al marginTop de los scrolls de cada uno de los layouts
+    de los tabs -->
+
+
+</LinearLayout>

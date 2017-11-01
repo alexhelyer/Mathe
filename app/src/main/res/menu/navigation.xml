@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_inicio"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/navigation_curso"
+        android:icon="@drawable/ic_graduate_cap_black_24dp"
+        android:title="Curso" />
+
+    <item
+        android:id="@+id/navigation_practicar"
+        android:icon="@drawable/ic_training_black_24dp"
+        android:title="Practicar" />
+
+    <item
+        android:id="@+id/navigation_acerca"
+        android:icon="@drawable/ic_information_black_24dp"
+        android:title="Acerca" />
+
+</menu>

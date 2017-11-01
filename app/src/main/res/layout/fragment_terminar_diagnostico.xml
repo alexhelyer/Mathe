@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context="com.alex.helyer.mathe.TerminarDiagnosticoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="45dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Gracias" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:text="Hemos terminado con la evaluación, ahora podrás hacer uso de la aplicación en cualquier momento." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:textSize="28dp"
+        android:padding="20dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text='"La educación es el arma más poderosa para cambiar al mundo" \n (Nelson Mandela)' />
+
+    <Button
+        android:id="@+id/btnCompletarDiagnostico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Completar"/>
+
+</LinearLayout>
