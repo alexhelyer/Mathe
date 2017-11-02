@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Registrarse = (Button) findViewById(R.id.btnRegistrarse);
 
         //Obtenemos la variable session_state
-        int session_state = getSharedPreferences("SESSION", MODE_PRIVATE).getInt("session_state",0);
+         int session_state = getSharedPreferences("SESSION", MODE_PRIVATE).getInt("session_state",0);
 
         Toast.makeText(this, "session_state:"+session_state, Toast.LENGTH_SHORT).show();
 
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     //mediaPlayer.start();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, RegistrarseActivity.class);
                     startActivity(intent);
+                    //finish();
                 }
             });
         }

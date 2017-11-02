@@ -108,7 +108,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
             getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new TerminarDiagnosticoFragment()).commit();
         }
         else if (count>(NUMERO+1)) {
-            getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
+             getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
 
             //Guardamos en una variable
             //getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("score_diagnostico",score).commit();

@@ -73,8 +73,17 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void Conexion() {
@@ -105,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                             //editor.commit();
 
                             //Recordamos que ya inicio sesion.
-                            getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
+                             getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
                             Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
                             startActivity(intent);
                             finish();
