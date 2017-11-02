@@ -27,7 +27,7 @@ public class MultipleFragment extends Fragment {
     Button btnOpc2;
     Button btnOpc3;
     Button btnOpc4;
-
+    private Boolean sonidoState, vibracionState;
     String answer = "null";
 
     int score;
@@ -97,11 +97,17 @@ public class MultipleFragment extends Fragment {
                         //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                         score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                         getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        mediaPlayer.start();
+                        //Check if sound is enable
+                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                        if(sonidoState){ mediaPlayer.start(); }
                     }
                     else {
-                        Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                        vibrator.vibrate(160);
+                        //Check if vibration is enable
+                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                        if(vibracionState) {
+                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(160);
+                        }
                     }
                     ((FragmentTransition)getActivity()).siguiente();
                 }
@@ -114,11 +120,17 @@ public class MultipleFragment extends Fragment {
                         //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                         score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                         getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        mediaPlayer.start();
+                        //Check if sound is enable
+                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                        if(sonidoState){ mediaPlayer.start(); }
                     }
                     else {
-                        Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                        vibrator.vibrate(160);
+                        //Check if vibration is enable
+                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                        if(vibracionState) {
+                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(160);
+                        }
                     }
                     ((FragmentTransition)getActivity()).siguiente();
                 }
@@ -131,11 +143,17 @@ public class MultipleFragment extends Fragment {
                         //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                         score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                         getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        mediaPlayer.start();
+                        //Check if sound is enable
+                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                        if(sonidoState){ mediaPlayer.start(); }
                     }
                     else {
-                        Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                        vibrator.vibrate(160);
+                        //Check if vibration is enable
+                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                        if(vibracionState) {
+                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(160);
+                        }
                     }
                     ((FragmentTransition)getActivity()).siguiente();
                 }
@@ -148,11 +166,17 @@ public class MultipleFragment extends Fragment {
                         //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                         score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                         getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        mediaPlayer.start();
+                        //Check if sound is enable
+                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                        if(sonidoState){ mediaPlayer.start(); }
                     }
                     else {
-                        Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                        vibrator.vibrate(160);
+                        //Check if vibration is enable
+                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                        if(vibracionState) {
+                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                            vibrator.vibrate(160);
+                        }
                     }
                     ((FragmentTransition)getActivity()).siguiente();
                 }
