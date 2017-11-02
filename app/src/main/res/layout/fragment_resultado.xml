@@ -70,7 +70,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 1"/>
 
@@ -81,7 +81,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#F77268"
+                    android:background="#F77268"
                     android:textColor="#FFF"
                     android:text="Pregunta 2"/>
 
@@ -92,7 +92,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 3"/>
 
@@ -103,7 +103,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#F77268"
+                    android:background="#F77268"
                     android:textColor="#FFF"
                     android:text="Pregunta 4"/>
 
@@ -114,7 +114,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 5"/>
 
@@ -125,7 +125,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 6"/>
 
@@ -136,7 +136,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 7"/>
 
@@ -147,7 +147,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#F77268"
+                    android:background="#F77268"
                     android:textColor="#FFF"
                     android:text="Pregunta 8"/>
 
@@ -158,7 +158,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#79C37C"
+                    android:background="#79C37C"
                     android:textColor="#FFF"
                     android:text="Pregunta 9"/>
 
@@ -169,7 +169,7 @@
                     android:paddingBottom="20dp"
                     android:layout_margin="0dp"
                     android:gravity="center_vertical"
-                    android:backgroundTint="#F77268"
+                    android:background="#F77268"
                     android:textColor="#FFF"
                     android:text="Pregunta 10"/>
 
@@ -177,6 +177,8 @@
                     android:id="@+id/btnOK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#36454f"
+                    android:textColor="@color/white"
                     android:text="OK"/>
 
             </LinearLayout>
