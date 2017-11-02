@@ -3,6 +3,7 @@ package com.alex.helyer.mathe;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,4 +27,9 @@ public class PerfilFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_perfil, container, false);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+    }
 }

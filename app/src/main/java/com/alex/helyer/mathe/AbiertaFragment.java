@@ -29,6 +29,7 @@ public class AbiertaFragment extends Fragment {
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
     int score;
     MediaPlayer mediaPlayer;
+    private Boolean sonidoState, vibracionState;
 
     public AbiertaFragment() {
         // Required empty public constructor
@@ -46,7 +47,7 @@ public class AbiertaFragment extends Fragment {
 
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.correct);
 
-        int session_state = getActivity().getSharedPreferences("SESSION", Context.MODE_PRIVATE).getInt("session_state",0);
+        final int session_state = getActivity().getSharedPreferences("SESSION", Context.MODE_PRIVATE).getInt("session_state",0);
 
         if (session_state==2) {
             final int random = getRandom();
@@ -61,11 +62,18 @@ public class AbiertaFragment extends Fragment {
                         if (misreactivos.checkRespuesta_A(mirespuesta,random)==1) {
                             score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                             getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                            mediaPlayer.start();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
+
                         }
                         else {
-                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(160);
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
                         }
                         ((FragmentTransition)getActivity()).siguiente();
                     }
