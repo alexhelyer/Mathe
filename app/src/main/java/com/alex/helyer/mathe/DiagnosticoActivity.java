@@ -21,6 +21,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
     int flag = 0;
     int count = 0;
     int score = 0;
+    boolean MODE_QUIZ = false;
 
     String DatosDiagnostico;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
@@ -53,23 +54,26 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder mialerta = new AlertDialog.Builder(this);
-        mialerta.setTitle("¡Alerta!");
-        mialerta.setMessage("¿Deseas salir, tu progeso no se registrará?");
-        mialerta.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //Toast.makeText(QuizActivity.this, "Presionaste NO", Toast.LENGTH_SHORT).show();
-            }
-        });
-        mialerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-
-        mialerta.show();
+        if (MODE_QUIZ==true) {
+            AlertDialog.Builder mialerta = new AlertDialog.Builder(this);
+            mialerta.setTitle("¡Alerta!");
+            mialerta.setMessage("¿Deseas salir del Examen?");
+            mialerta.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+            mialerta.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            mialerta.show();
+        }
+        else {
+            finish();
+        }
     }
 
     @Override
@@ -88,6 +92,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
 
 
         if (count<NUMERO) {
+            MODE_QUIZ = true;
             switch (flag) {
                 case 0:
                     getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new MultipleFragment()).commit();
