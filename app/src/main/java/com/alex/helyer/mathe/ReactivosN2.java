@@ -1,24 +1,24 @@
 package com.alex.helyer.mathe;
 
 /**
- * Created by helyer on 24/10/17.
+ * Created by helyer on 06/11/17.
  */
 
-public class Reactivos {
+public class ReactivosN2 {
 
-    public String[] PREGUNTAS_MULTIPLES = {"Calcula -7-10-1","Calcula -6+2-20","Calcula: -4+11","Calcula: 6+2-9","Calcula: 14-18+2"};
+    public String[] PREGUNTAS_MULTIPLES = {"Calcula: (7)2-6+7","Calcula: 31+31-69","Calcula: 64+85-162","Calcula: (1)(5)(9)-14","Calcula: 77-99+2"};
 
-    public String[] RES_MULTIPLES1 = {"-17","-26","-7","1","4"};
-    public String[] RES_MULTIPLES2 = {"18","-28","8","-2","-3"};
-    public String[] RES_MULTIPLES3 = {"-19","24","6","0","0"};
-    public String[] RES_MULTIPLES4 = {"18","22","5","3","2"};
-    public String[] CORR_MULTIPLES = {"-18","-24","7","-1","-2"};
+    public String[] RES_MULTIPLES1 = {"21","-6","14","-25","-18"};
+    public String[] RES_MULTIPLES2 = {"14","-8","13","25","-19"};
+    public String[] RES_MULTIPLES3 = {"16","7","-12","-31","-21"};
+    public String[] RES_MULTIPLES4 = {"17","-5","11","21","-22"};
+    public String[] CORR_MULTIPLES = {"15","-7","-13","31","-20"};
 
-    public String[] PREGUNTAS_ABIERTAS = {"Calcula -3-5-2","Calcula -8-4","Calcula 8+3+2","Calcula -5+4","Calcula 9-10+2","Calcula -13+5","Calcula 5+3+1","Calcula -5-5+1","Calcula 10-10+1","Calcula 5-3+8","Calcula (5-7)+1","Calcula 1+1+11","Calcula (-2)+(-1)","Calcula -1-3-4","Calcula -1-1-10","Escribe el valor absoluto del siguiente número: -3","Escribe el valor absoluto del siguiente número: +6","Escribe el valor absoluto del siguiente número: -10","Escribe el valor absoluto del siguiente número: -22","Escribe el valor absoluto del siguiente número: +2..."};
-    public String[] RESPUESTAS_ABIERTAS = {"-10","-12","13","-1","1","-8","9","-9","1","10","-1","13","-3","-8","-12","3","6","10","22","27"};
+    public String[] PREGUNTAS_ABIERTAS = {"Calcula -56+16","Calcula: -16+34-19","Calcula: -64+24-2","Calcula: (-7)-(-7)-(+5)","Calcula:(+3)-(+8)","Calcula -13+5","Calcula 5+3+1","Calcula -5-5+1","Calcula 10-10+1","Calcula 5-3+8","Calcula (5-7)+1","Calcula 1+1+11","Calcula (-2)+(-1)","Calcula -1-3-4","Calcula -1-1-10","Escribe el valor absoluto del siguiente número: -3","Escribe el valor absoluto del siguiente número: +6","Escribe el valor absoluto del siguiente número: -10","Escribe el valor absoluto del siguiente número: -22","Escribe el valor absoluto del siguiente número: +2..."};
+    public String[] RESPUESTAS_ABIERTAS = {"-40","-1","-42","-5","-5","-8","9","-9","1","10","-1","13","-3","-8","-12","3","6","10","22","27"};
 
-    public String[] PREGUNTAS_VF = {"-5+2+3=0","-20+19+2=2","4-2+5=7","-1-3-1+5=0","6+4-2=9","10+22-7=25"};
-    public String[] RESPUESTAS_VF = {"verdadero","falso","verdadero","verdadero","falso","verdadero"};
+    public String[] PREGUNTAS_VF = {"-25+31-4+6=8","14-67=52","-11+48=37","5 + 2·( -3 )= -1","(5)(3)+2 = 17","(2)(3)+(3)(3)=15"};
+    public String[] RESPUESTAS_VF = {"verdadero","falso","verdadero","verdadero","verdadero","verdadero"};
 
     public String getPreguntas_M(int index) {
         String pregunta = PREGUNTAS_MULTIPLES[index];

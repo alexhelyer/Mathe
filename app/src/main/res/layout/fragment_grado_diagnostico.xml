@@ -7,36 +7,52 @@
     tools:context="com.alex.helyer.mathe.GradoDiagnosticoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:text="Selecciona tu grado escolar:" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="Ahora seleccione su grado escolar:" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnDiagnosticoPrimero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/inv_button"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="0dp"
         android:text="primero"/>
 
     <Button
         android:id="@+id/btnDiagnosticoSegundo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/inv_button"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="0dp"
         android:text="segundo"/>
 
     <Button
         android:id="@+id/btnDiagnosticoTercero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/inv_button"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="0dp"
         android:text="tercero"/>
 
 </LinearLayout>

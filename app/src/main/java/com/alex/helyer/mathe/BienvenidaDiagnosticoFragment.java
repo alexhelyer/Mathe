@@ -20,9 +20,6 @@ public class BienvenidaDiagnosticoFragment extends Fragment {
 
     Button btnDiagnosticoContinuar;
 
-
-
-
     public BienvenidaDiagnosticoFragment() {
         // Required empty public constructor
     }

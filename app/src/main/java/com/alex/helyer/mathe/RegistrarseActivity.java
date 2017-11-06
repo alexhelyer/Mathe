@@ -92,9 +92,9 @@ public class RegistrarseActivity extends AppCompatActivity {
                 apellido = inApellido.getText().toString();
                 usuario = inUsuario.getText().toString();
                 correo = inCorreo.getText().toString();
-                localidad = spinLocalidad.getSelectedItem().toString();
+                localidad = spinLocalidad.getSelectedItem().toString().toLowerCase();
                 edad = spinEdad.getSelectedItem().toString();
-                genero = spinGenero.getSelectedItem().toString();
+                genero = spinGenero.getSelectedItem().toString().toLowerCase();
                 password = inPassword.getText().toString();
                 confirmpass = inconfirmPassword.getText().toString();
 

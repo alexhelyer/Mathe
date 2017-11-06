@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -27,7 +28,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Herramientas extends Fragment {
 
-    private Button button;
+    private TextView button;
     private Switch sonido;
     private Switch vibracion;
     private Boolean stateSonido, stateVibracion;
@@ -43,8 +44,9 @@ public class Herramientas extends Fragment {
         //Show ActionBar and Back Arrow
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Configuración");
 
-        button = (Button) herramientas.findViewById(R.id.logout);
+        button = (TextView) herramientas.findViewById(R.id.logout);
         sonido = (Switch) herramientas.findViewById(R.id.switch_sonido);
         vibracion = (Switch) herramientas.findViewById(R.id.switch_vibracion);
 
@@ -52,7 +54,11 @@ public class Herramientas extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "logout", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "logout", Toast.LENGTH_SHORT).show();
+                getActivity().getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",0).commit();
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -104,18 +110,16 @@ public class Herramientas extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     //Change fragment with back arrow
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // todo: goto back activity from here
-                Toast.makeText(getActivity(), "Back", Toast.LENGTH_SHORT).show();
-                getFragmentManager().beginTransaction().replace(R.id.content, new AcercaFragment()).commit();
+                //Toast.makeText(getActivity(), "Back", Toast.LENGTH_SHORT).show();
+                //getFragmentManager().beginTransaction().replace(R.id.content, new AcercaFragment()).commit();
+                getActivity().onBackPressed();
                 return true;
-
-
             default:
                 return super.onOptionsItemSelected(item);
 

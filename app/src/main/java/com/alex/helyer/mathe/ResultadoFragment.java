@@ -23,7 +23,6 @@ public class ResultadoFragment extends Fragment {
     TextView txtScore;
     Button btnOK;
 
-
     //SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
 
     //int score = sharedPref.getInt("score_final",-1);
@@ -32,18 +31,14 @@ public class ResultadoFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_resultado, container, false);
-
 
         donutProgress = (DonutProgress) rootView.findViewById(R.id.donut_progress);
         txtScore = (TextView) rootView.findViewById(R.id.txtScore);
         btnOK = (Button) rootView.findViewById(R.id.btnOK);
-
 
         int score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0);
         txtScore.setText(Integer.toString(score)+"/10");
@@ -53,7 +48,6 @@ public class ResultadoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((FragmentTransition)getActivity()).siguiente();
-                //getActivity().finish();
             }
         });
 

@@ -5,13 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@color/white"
     tools:context="com.alex.helyer.mathe.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/ic_launcher"/>
 
     </LinearLayout>
 
@@ -19,19 +25,23 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:textSize="16dp"
-        android:layout_margin="5dp"
-        android:padding="20dp"
-        android:text="iniciar sesion"/>
+        android:textColor="@color/white"
+        android:background="@drawable/my_button"
+        android:textAllCaps="false"
+        android:text="Iniciar Sesión"/>
 
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:textSize="16dp"
-        android:layout_margin="5dp"
-        android:padding="20dp"
-        android:text="registrarse"/>
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:background="@drawable/my_button"
+        android:text="Registrarse"/>
 
 
 

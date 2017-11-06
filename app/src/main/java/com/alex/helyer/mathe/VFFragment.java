@@ -27,17 +27,19 @@ public class VFFragment extends Fragment {
     Button btnFalso;
     private Boolean sonidoState, vibracionState;
     Reactivos misreactivos = new Reactivos();
+    ReactivosN1 reactivosN1 = new ReactivosN1();
+    ReactivosN2 reactivosN2 = new ReactivosN2();
+    ReactivosN3 reactivosN3 = new ReactivosN3();
+    int mi_nivel = 1;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
 
     int score;
 
     MediaPlayer mediaPlayer;
 
-
     public VFFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,55 +55,159 @@ public class VFFragment extends Fragment {
         int session_state = getActivity().getSharedPreferences("SESSION", Context.MODE_PRIVATE).getInt("session_state",0);
 
         if (session_state==2) {
+
+            mi_nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",1);
             final int random = getRandom();
 
-            txtVF.setText(misreactivos.getPreguntas_VF(random));
+            if (mi_nivel==3) {
+                txtVF.setText(reactivosN3.getPreguntas_VF(random));
 
-            btnVerdadero.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (misreactivos.checkRespuesta_VF("verdadero",random)==1) {
-                        //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                        score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                        getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        //Check if sound is enable
-                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                        if(sonidoState){ mediaPlayer.start(); }
-                    }
-                    else {
-                        //Check if vibration is enable
-                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                        if(vibracionState) {
-                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(160);
+                btnVerdadero.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN3.checkRespuesta_VF("verdadero",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
                         }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
                     }
-                    ((FragmentTransition)getActivity()).siguiente();
-                }
-            });
+                });
 
-            btnFalso.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (misreactivos.checkRespuesta_VF("falso",random)==1) {
-                        //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                        score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                        getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                        //Check if sound is enable
-                        sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                        if(sonidoState){ mediaPlayer.start(); }
-                    }
-                    else {
-                        //Check if vibration is enable
-                        vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                        if(vibracionState) {
-                            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(160);
+                btnFalso.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN3.checkRespuesta_VF("falso",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
                         }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
                     }
-                    ((FragmentTransition)getActivity()).siguiente();
-                }
-            });
+                });
+            }
+            else if (mi_nivel==2) {
+                txtVF.setText(reactivosN2.getPreguntas_VF(random));
+
+                btnVerdadero.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN2.checkRespuesta_VF("verdadero",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
+                        }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
+                    }
+                });
+
+                btnFalso.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN2.checkRespuesta_VF("falso",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
+                        }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
+                    }
+                });
+            }
+            else {
+                txtVF.setText(reactivosN1.getPreguntas_VF(random));
+
+                btnVerdadero.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN1.checkRespuesta_VF("verdadero",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
+                        }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
+                    }
+                });
+
+                btnFalso.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (reactivosN1.checkRespuesta_VF("falso",random)==1) {
+                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
+                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
+                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+                            //Check if sound is enable
+                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
+                            if(sonidoState){ mediaPlayer.start(); }
+                        }
+                        else {
+                            //Check if vibration is enable
+                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
+                            if(vibracionState) {
+                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                                vibrator.vibrate(160);
+                            }
+                        }
+                        ((FragmentTransition)getActivity()).siguiente();
+                    }
+                });
+            }
+
+
         }
         else {
             final String DATOS = getActivity().getSharedPreferences("DIAGNOSTICO", MODE_PRIVATE).getString("examen","null");

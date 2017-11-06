@@ -222,8 +222,12 @@
                     android:id="@+id/Registrarse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
+                    android:background="@drawable/my_button"
+                    android:textColor="@color/white"
                     android:text="registrarse"/>
 
             </LinearLayout>

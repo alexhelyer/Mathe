@@ -4,21 +4,21 @@
     <item
         android:id="@+id/navigation_inicio"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="Inicio" />
+        android:title="Inicio"/>
 
     <item
         android:id="@+id/navigation_curso"
         android:icon="@drawable/ic_graduate_cap_black_24dp"
-        android:title="Curso" />
+        android:title="Curso"/>
 
     <item
         android:id="@+id/navigation_practicar"
         android:icon="@drawable/ic_training_black_24dp"
-        android:title="Practicar" />
+        android:title="Practicar"/>
 
     <item
         android:id="@+id/navigation_acerca"
         android:icon="@drawable/ic_information_black_24dp"
-        android:title="Acerca" />
+        android:title="Acerca"/>
 
 </menu>

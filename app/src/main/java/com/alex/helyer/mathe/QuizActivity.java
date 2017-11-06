@@ -52,12 +52,6 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         }
 
 
-
-
-
-
-
-
     }
 
     @Override
@@ -98,11 +92,6 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
     @Override
     public void siguiente() {
-
-        //int buffer = getSharedPreferences("SCORE", MODE_PRIVATE).getInt("score",0);
-        //score = score + buffer;
-
-        //getSharedPreferences("SCORE", MODE_PRIVATE).edit().putInt("score_final",score).commit();
 
         count++;
         flag = getRandom();
@@ -151,7 +140,6 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         String DATOS = datos + "-" + midato;
 
         DATOS = DATOS.substring(3,17);
-
 
         return DATOS;
     }

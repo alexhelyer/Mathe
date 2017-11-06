@@ -3,17 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EEEEEE"
     tools:context="com.alex.helyer.mathe.PracticarFragment">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PRACTICAR"
-        android:gravity="center"
-        android:padding="15dp"
-        android:background="#3498DB"
-        android:drawableBottom="@color/colorPrimaryDark"
-        android:textColor="#FFFFFF"/>
 
     <ExpandableListView
         android:id="@+id/ExpListView"

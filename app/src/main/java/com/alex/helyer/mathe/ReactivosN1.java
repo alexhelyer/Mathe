@@ -1,10 +1,10 @@
 package com.alex.helyer.mathe;
 
 /**
- * Created by helyer on 24/10/17.
+ * Created by helyer on 06/11/17.
  */
 
-public class Reactivos {
+public class ReactivosN1 {
 
     public String[] PREGUNTAS_MULTIPLES = {"Calcula -7-10-1","Calcula -6+2-20","Calcula: -4+11","Calcula: 6+2-9","Calcula: 14-18+2"};
 

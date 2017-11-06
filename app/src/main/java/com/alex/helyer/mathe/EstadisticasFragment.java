@@ -52,7 +52,6 @@ public class EstadisticasFragment extends Fragment {
 
     DonutProgress Promedio;
 
-
     public EstadisticasFragment() {
         // Required empty public constructor
     }

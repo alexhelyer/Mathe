@@ -16,11 +16,9 @@ public class TerminarDiagnosticoFragment extends Fragment {
 
     Button btnCompletarDiagnostico;
 
-
     public TerminarDiagnosticoFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

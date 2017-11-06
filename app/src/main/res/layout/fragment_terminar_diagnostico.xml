@@ -38,7 +38,9 @@
         android:id="@+id/btnCompletarDiagnostico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/inv_button"
+        android:textColor="@color/colorPrimary"
         android:text="Completar"/>
 
 </LinearLayout>

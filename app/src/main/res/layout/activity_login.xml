@@ -25,11 +25,10 @@
         android:id="@+id/login_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -42,8 +41,6 @@
                 android:hint="Usuario / Correo"
                 android:inputType="text"
                 android:maxLines="1"
-                android:layout_margin="10dp"
-                android:padding="15dp"
                 android:singleLine="true" />
 
         </android.support.design.widget.TextInputLayout>
@@ -60,8 +57,6 @@
                 android:imeActionId="@+id/login"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:layout_margin="10dp"
-                android:padding="15dp"
                 android:singleLine="true" />
 
         </android.support.design.widget.TextInputLayout>
@@ -70,19 +65,19 @@
             android:id="@+id/btnEntrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:layout_margin="5dp"
-            android:padding="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/my_button"
+            android:textColor="@color/white"
             android:text="entrar"/>
 
         <TextView
             android:id="@+id/recuperar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="0dp"
+            android:padding="10dp"
             android:gravity="center"
-            android:text="Olvide mi contraseña"/>
+            android:textColor="@color/colorPrimary"
+            android:text="¿Olvidaste la contraseña?"/>
 
     </LinearLayout>
 

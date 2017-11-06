@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 }
+
                 Login login = new Login(user,pass);
                 login.execute((Void) null);
             }
@@ -117,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         private final String mPassword;
 
         public int flag = 0;
+        public int nivel = 0;
 
         Login(String email, String password) {
             mEmail = email;
@@ -138,35 +140,30 @@ public class LoginActivity extends AppCompatActivity {
             datos.put("pass", mPassword);
 
             //Solo realiza una intento de peticion con duracion de 1.5seg
-            client.setMaxRetriesAndTimeout(1,1800);
-
-            //log.i("getConnectTimeout:",""+client.getConnectTimeout());
-            //log.i("getResponseTimeout:",""+client.getResponseTimeout());
+            client.setMaxRetriesAndTimeout(1,1900);
 
             client.get(URL, datos, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     if (statusCode==200) {
                         String jsonResponse = new String(responseBody);
-                        String getUser, getPass;
+                        String getUser, getNivel;
                         try {
                             JSONObject jsonobj = new JSONObject(jsonResponse);
                             getUser = jsonobj.getString("usuario");
-                            getPass = jsonobj.getString("password");
+                            getNivel = jsonobj.getString("nivel");
+                            nivel = Integer.parseInt(getNivel);
                             //Toast.makeText(LoginActivity.this, getUser+"-"+getPass, Toast.LENGTH_SHORT).show();
-                            if ( !getUser.contentEquals("ERROR")  ) {
-                                //Recordamos que ya inicio sesion.
-                                //getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
-                                //Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
-                                //startActivity(intent);
-                                //finish();
-                                //Toast.makeText(LoginActivity.this,"Bienvenido",Toast.LENGTH_SHORT).show();
-                                flag = 200;
-                            }
-                            else {
-                                //Toast.makeText(LoginActivity.this,"Datos Incorrectos",Toast.LENGTH_SHORT).show();
+                            if ( getUser.contentEquals("100") ) {
                                 flag = 100;
                             }
+                            else if ( getUser.contentEquals("300") ) {
+                                flag = 300;
+                            }
+                            else {
+                                flag = 200;
+                            }
+
                         }
                         catch (Exception e) {
                             e.printStackTrace();
@@ -203,17 +200,31 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(Boolean aBoolean) {
             if (flag==200) {
                 //Recordamos que ya inicio sesion.
-                getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
-                Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
-                startActivity(intent);
-                finish();
-                Toast.makeText(LoginActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+
+                if ( nivel==0 ) {
+                    getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
+                    Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(LoginActivity.this, "Bienvenido Diagnostico:"+nivel, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
+                    getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
+                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(LoginActivity.this, "Bienvenido Home:"+nivel, Toast.LENGTH_SHORT).show();
+                }
+
             }
             else {
                 progress.setVisibility(View.INVISIBLE);
                 container.setVisibility(View.VISIBLE);
                 if (flag==100)
                     Toast.makeText(LoginActivity.this, "Los datos son incorrectos", Toast.LENGTH_SHORT).show();
+                else if (flag==300)
+                    Toast.makeText(LoginActivity.this, "Activa tu cuenta antes de continuar", Toast.LENGTH_SHORT).show();
                 else if (flag==404)
                     Toast.makeText(LoginActivity.this, "No hay conexión con el Internet", Toast.LENGTH_SHORT).show();
                 else

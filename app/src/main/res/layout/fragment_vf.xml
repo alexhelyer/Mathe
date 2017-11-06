@@ -29,20 +29,22 @@
             android:id="@+id/btnVerdadero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/my_button"
             android:text="Verdadero"/>
 
         <Button
             android:id="@+id/btnFalso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/my_button"
             android:text="Falso"/>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

@@ -32,12 +32,12 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
     public void addFragment(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
-
     }
 
     public CharSequence getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
+
 }
 
 

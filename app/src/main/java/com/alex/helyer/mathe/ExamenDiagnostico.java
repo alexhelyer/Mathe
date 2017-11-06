@@ -105,9 +105,6 @@ public class ExamenDiagnostico {
         return respuesta;
     }
 
-
-
-
     private String[] getDatosJSON(String json, String columna) {
         String[] lista = new String[20];
 

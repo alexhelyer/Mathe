@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-
-
         //mediaPlayer = MediaPlayer.create(this, R.raw.correct);
 
         Login = (Button) findViewById(R.id.btnLogin);
@@ -35,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
          int session_state = getSharedPreferences("SESSION", MODE_PRIVATE).getInt("session_state",0);
 
         Toast.makeText(this, "session_state:"+session_state, Toast.LENGTH_SHORT).show();
+
+
+        //getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",3).commit();
 
         if (session_state==2) {
             //Pasamos Directamente a HomeActivity

@@ -27,7 +27,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Respuesta"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal|numberSigned"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,8 +42,10 @@
             android:id="@+id/btnOk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/my_button"
             android:text="siguiente" />
     </LinearLayout>
 

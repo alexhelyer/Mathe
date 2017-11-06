@@ -4,73 +4,83 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal">
 
-            <TableLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:stretchColumns="0,1,2">
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:text="Vibración"/>
 
-                <TableRow android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:textSize="18dp"
-                        android:layout_marginLeft="15dp"
-                        android:textColor="@color/black"
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:text="Vibración"/>
-                    <Switch
-                        android:id="@+id/switch_vibracion"
-                        android:layout_marginRight="35dp"
-                        android:checked="true"/>
-                </TableRow>
-
-                <TableRow android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp">
-                    <TextView
-                        android:textSize="18dp"
-                        android:layout_marginLeft="15dp"
-                        android:textColor="@color/black"
-                        android:layout_height="match_parent"
-                        android:layout_width="wrap_content"
-                        android:text="Sonido"/>
-                    <Switch
-                        android:id="@+id/switch_sonido"
-                        android:layout_marginRight="35dp"
-                        android:checked="true"/>
-                </TableRow>
-
-                <TableRow>
-                    <Button
-                        android:id="@+id/logout"
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="CERRAR SESIÓN"
-                        android:textColor="@color/white"
-                        android:background="#dd0000"/>
-                </TableRow>
-
-            </TableLayout>
-
+            <Switch
+                android:id="@+id/switch_vibracion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"/>
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/linea"/>
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:text="Sonido"/>
+
+            <Switch
+                android:id="@+id/switch_sonido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/linea"/>
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:text="Cerrar Sesión"/>
+
+    </LinearLayout>
 
 </LinearLayout>

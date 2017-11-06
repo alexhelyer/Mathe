@@ -6,38 +6,54 @@
     android:background="@drawable/background"
     tools:context="com.alex.helyer.mathe.BienvenidaDiagnosticoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textSize="45dp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Bienvenido" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="15dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/white"
-        android:text="Mathe es una aplicación dedicada a los alumnos de nivel secundaria con el objetivo de fortalecer sus conocimientos matemáticos." />
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:padding="15dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/white"
-        android:text="A continuación evaluaremos tus conocimientos mediante un examen diagnostico." />
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="Bienvenido" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:text="Mathe es una aplicación dedicada a los alumnos de nivel secundaria con el objetivo de fortalecer sus conocimientos matemáticos." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:padding="15dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:text="A continuación evaluaremos tus conocimientos mediante un examen diagnostico." />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnDiagnosticoContinuar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/inv_button"
+        android:textColor="@color/colorPrimary"
         android:text="continuar" />
+
+
 
 </LinearLayout>

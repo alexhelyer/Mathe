@@ -26,8 +26,6 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
     String DatosDiagnostico;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +37,12 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
         setContentView(R.layout.activity_diagnostico);
         getSupportActionBar().hide();
 
-
-
         //Siempre empezamos desde score=0
         getSharedPreferences("SCORE", MODE_PRIVATE).edit().putInt("score",0).commit();
         //Mostramos el primer fragmento la Bienvenida.
         getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new BienvenidaDiagnosticoFragment()).commit();
 
         getDatosDiagnostico();
-
-
 
     }
 
