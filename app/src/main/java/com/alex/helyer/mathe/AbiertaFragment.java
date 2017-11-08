@@ -2,17 +2,26 @@ package com.alex.helyer.mathe;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.github.javiersantos.materialstyleddialogs.enums.Style;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -29,6 +38,7 @@ public class AbiertaFragment extends Fragment {
     ReactivosN1 reactivosN1 = new ReactivosN1();
     ReactivosN2 reactivosN2 = new ReactivosN2();
     ReactivosN3 reactivosN3 = new ReactivosN3();
+    ImageView tips;
 
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
     int score;
@@ -59,6 +69,7 @@ public class AbiertaFragment extends Fragment {
         txtAbierta = (TextView) rootView.findViewById(R.id.txtAbierta);
         resAbierta = (EditText) rootView.findViewById(R.id.resAbierta);
         btnOk = (Button) rootView.findViewById(R.id.btnOk);
+        tips = (ImageView) rootView.findViewById(R.id.tips);
 
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.correct);
 
@@ -200,6 +211,22 @@ public class AbiertaFragment extends Fragment {
             });
 
         }
+
+        // ******* Dialogo de información *******///
+        final MaterialStyledDialog.Builder dialogHeader = new MaterialStyledDialog.Builder(getActivity())
+                .setStyle(Style.HEADER_WITH_TITLE)
+                .setHeaderDrawable(R.drawable.header)
+                .withDialogAnimation(true)
+                .withDarkerOverlay(true)
+                .setTitle("Números Enteros")
+                .setDescription("Aquí van las fórmulas")
+                .setPositiveText("Entendido");
+        tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogHeader.show();
+            }
+        });
 
         return rootView;
     }

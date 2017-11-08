@@ -9,8 +9,9 @@
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#EEEEEE">
+        android:layout_height="140dp"
+        android:background="#2a2a42">
+
 
         <ImageView
             android:id="@+id/imageView2"
@@ -19,22 +20,43 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="10dip"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
             app:civ_border_width="1dp"
-            app:civ_border_color="#000000"/>
+            app:civ_border_color="#ffffff"/>
         <TextView
+            android:id="@+id/texto_puntos"
             android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:gravity="right|center_vertical"
-            android:layout_alignParentRight="true"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_image"
             android:layout_marginTop="10dp"
             android:layout_marginRight="70dp"
-            android:text="Puntos"
-
-            android:textColor="@color/colorPrimaryDark"
+            android:text="Puntos: "
+            android:textColor="#ffffff"
             android:textSize="15dp"/>
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/texto_puntos"
+            android:layout_marginRight="70dp"
+            android:text="Insignias: "
+            android:textColor="#ffffff"
+            android:textSize="15dp"/>
+        <ImageView
+            android:id="@+id/settins_boton"
+            android:layout_width="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:background="@mipmap/settings"
+            android:layout_alignParentRight="true" />
+
 
     </RelativeLayout>
 
