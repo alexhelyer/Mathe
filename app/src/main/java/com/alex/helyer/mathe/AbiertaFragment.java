@@ -213,18 +213,13 @@ public class AbiertaFragment extends Fragment {
         }
 
         // ******* Dialogo de información *******///
-        final MaterialStyledDialog.Builder dialogHeader = new MaterialStyledDialog.Builder(getActivity())
-                .setStyle(Style.HEADER_WITH_TITLE)
-                .setHeaderDrawable(R.drawable.header)
-                .withDialogAnimation(true)
-                .withDarkerOverlay(true)
-                .setTitle("Números Enteros")
-                .setDescription("Aquí van las fórmulas")
-                .setPositiveText("Entendido");
         tips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogHeader.show();
+                //Le pasamos al método de la clase TipClass un entero que se guarda en SharedPreferences
+                //para elegir el subtema adecuado y le mandamos el contexto getActivity()
+                TipsClass tipsClass = new TipsClass();
+                tipsClass.showTipDialog(1,getActivity());
             }
         });
 

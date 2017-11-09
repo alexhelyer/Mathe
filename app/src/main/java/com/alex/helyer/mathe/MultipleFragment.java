@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MultipleFragment extends Fragment {
     Button btnOpc4;
     private Boolean sonidoState, vibracionState;
     String answer = "null";
+    ImageView tips;
 
     int score;
 
@@ -56,6 +58,7 @@ public class MultipleFragment extends Fragment {
         btnOpc2 = (Button) rootView.findViewById(R.id.btnOpc2);
         btnOpc3 = (Button) rootView.findViewById(R.id.btnOpc3);
         btnOpc4 = (Button) rootView.findViewById(R.id.btnOpc4);
+        tips = (ImageView) rootView.findViewById(R.id.tips);
 
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.correct);
 
@@ -514,7 +517,16 @@ public class MultipleFragment extends Fragment {
 
         }
 
-
+// ******* Dialogo de información *******///
+        tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Le pasamos al método de la clase TipClass un entero que se guarda en SharedPreferences
+                //para elegir el subtema adecuado y le mandamos el contexto getActivity()
+                TipsClass tipsClass = new TipsClass();
+                tipsClass.showTipDialog(18,getActivity());
+            }
+        });
 
 
 
