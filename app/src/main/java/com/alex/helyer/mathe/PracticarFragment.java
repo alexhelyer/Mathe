@@ -118,10 +118,9 @@ public class PracticarFragment extends Fragment {
         trigonometria.add("Teorema de Pitágoras");
 
         List<String> probabilidad = new ArrayList<>();
-        probabilidad.add("Triángulos isósceles y equilateros");
-        probabilidad.add("Ángulos inscritos");
-        probabilidad.add("Triángulos rectángulos");
-        probabilidad.add("Teorema de Pitágoras");
+        probabilidad.add("Dos eventos mutuamente excluyentes");
+        probabilidad.add("Dos eventos independientes");
+        probabilidad.add("Resultados equiprobables y no equiprobables");
 
         listHash.put(listDataHeader.get(0), aritmetica);
         listHash.put(listDataHeader.get(1), algebra);

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class VFFragment extends Fragment {
     ReactivosN3 reactivosN3 = new ReactivosN3();
     int mi_nivel = 1;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
+    ImageView tips;
 
     int score;
 
@@ -49,6 +51,7 @@ public class VFFragment extends Fragment {
         txtVF = (TextView) rootView.findViewById(R.id.txtVF);
         btnVerdadero = (Button) rootView.findViewById(R.id.btnVerdadero);
         btnFalso = (Button) rootView.findViewById(R.id.btnFalso);
+        tips = (ImageView) rootView.findViewById(R.id.tips);
 
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.correct);
 
@@ -250,7 +253,16 @@ public class VFFragment extends Fragment {
 
         }
 
-
+        // ******* Dialogo de información *******///
+        tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Le pasamos al método de la clase TipClass un entero que se guarda en SharedPreferences
+                //para elegir el subtema adecuado y le mandamos el contexto getActivity()
+                TipsClass tipsClass = new TipsClass();
+                tipsClass.showTipDialog(10,getActivity());
+            }
+        });
 
 
 
