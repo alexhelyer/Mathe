@@ -24,7 +24,8 @@
         <activity android:name=".RecuperarPasswordActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".DiagnosticoActivity" />
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".ModificarDatosActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.alex.helyer.mathe;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -26,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,8 +39,7 @@ public class InicioFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager mViewPager;
-
-
+    private ImageView settingsImage;
     private CircleImageView circleImageView;
 
 
@@ -142,45 +143,47 @@ public class InicioFragment extends Fragment {
 
                         switch (position) {
                             case 0:
-                                AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(getActivity());
-                                alertDialog2.setMessage("¡Esta insignia va de nuestra parte!");
-                                alertDialog2.setTitle("¡Hola!").show();
                                 imageValue.putInt("imageValue",0);
                                 circleImageView.setImageResource(R.mipmap.alberteinstein);
                                 break;
                             case 1:
-                                alertDialog.setMessage("Necesitas 100 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
                                 imageValue.putInt("imageValue",1);
                                 circleImageView.setImageResource(R.mipmap.tesla);
                                 break;
                             case 2:
-                                alertDialog.setMessage("Necesitas 150 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
                                 imageValue.putInt("imageValue",2);
                                 circleImageView.setImageResource(R.mipmap.house);
                                 break;
                             case 3:
-                                alertDialog.setMessage("Necesitas 200 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
+                                circleImageView.setImageResource(R.mipmap.tesla);
                                 break;
                             case 4:
-                                alertDialog.setMessage("Necesitas 250 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
+                                circleImageView.setImageResource(R.mipmap.tesla);
                                 break;
                             case 5:
-                                alertDialog.setMessage("Necesitas 300 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
+                                circleImageView.setImageResource(R.mipmap.tesla);
                                 break;
                             case 6:
-                                alertDialog.setMessage("Necesitas 350 puntos para desbloquear esta insignia");
-                                alertDialog.setTitle("Ups").show();
+                                circleImageView.setImageResource(R.mipmap.tesla);
                                 break;
                         }
 
                         imageValue.apply();
                     }
                 });
+
+            }
+        });
+
+        //**********    Settings    **********//
+        settingsImage = (ImageView)getActivity().findViewById(R.id.settins_boton);
+        settingsImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(),"Settings",Toast.LENGTH_SHORT).show();
+                Intent intent;
+                intent = new Intent(getActivity(), ModificarDatosActivity.class);
+                startActivity(intent);
 
             }
         });

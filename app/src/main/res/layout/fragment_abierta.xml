@@ -8,6 +8,15 @@
     tools:context="com.alex.helyer.mathe.AbiertaFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <!-- https://github.com/javiersantos/MaterialStyledDialogs -->
+    <ImageView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/info"/>
     <TextView
         android:id="@+id/txtAbierta"
         android:layout_width="match_parent"
