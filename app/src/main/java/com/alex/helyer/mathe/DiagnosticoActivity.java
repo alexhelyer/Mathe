@@ -107,15 +107,13 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
             getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new TerminarDiagnosticoFragment()).commit();
         }
         else if (count>(NUMERO+1)) {
-             getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
-
-            //Guardamos en una variable
-            //getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("score_diagnostico",score).commit();
+            String correo = getSharedPreferences("PERFIL", MODE_PRIVATE).getString("correo","correo");
             int nivel = getNivelDiagnostico(score);
+            //Guardamos es nivel en el telefono
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
-            Intent intent = new Intent(DiagnosticoActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+
+            setDiagnosticoServer(correo, nivel);
+
         }
     }
 
@@ -170,6 +168,36 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
             nivel = 2;
 
         return nivel;
+    }
+
+    public void setDiagnosticoServer(String email, int value) {
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        String URL = "http://myappmate.000webhostapp.com/setDiagnostico.php";
+
+        RequestParams params = new RequestParams();
+        params.put("correo", email);
+        params.put("nivel", value);
+
+        client.get(URL, params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode==200) {
+                    //Conexión Existosa.
+                    Toast.makeText(DiagnosticoActivity.this, "Se guardo Nivel", Toast.LENGTH_SHORT).show();
+                    getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
+                    Intent intent = new Intent(DiagnosticoActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                //Conexión fallida
+                Toast.makeText(DiagnosticoActivity.this, "Error al Guardar Nivel", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

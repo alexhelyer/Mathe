@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     LinearLayout container;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +121,8 @@ public class LoginActivity extends AppCompatActivity {
         public int flag = 0;
         public int nivel = 0;
 
+        //Datos Personales
+        String nombre, correo, genero, localidad, edad;
         Login(String email, String password) {
             mEmail = email;
             mPassword = password;
@@ -153,7 +156,14 @@ public class LoginActivity extends AppCompatActivity {
                             getUser = jsonobj.getString("usuario");
                             getNivel = jsonobj.getString("nivel");
                             nivel = Integer.parseInt(getNivel);
-                            //Toast.makeText(LoginActivity.this, getUser+"-"+getPass, Toast.LENGTH_SHORT).show();
+
+                            //Obtenemos los datos personales
+                            nombre = jsonobj.getString("nombre");
+                            correo = jsonobj.getString("correo");
+                            genero = jsonobj.getString("genero");
+                            localidad = jsonobj.getString("localidad");
+                            edad = jsonobj.getString("edad");
+
                             if ( getUser.contentEquals("100") ) {
                                 flag = 100;
                             }
@@ -199,16 +209,25 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             if (flag==200) {
-                //Recordamos que ya inicio sesion.
+                //Recordamos que ya inicio sesion. Y guardamos datos del usuario.
+                //getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putInt("session_state",1).commit();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("nombre",nombre).apply();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("correo",correo).apply();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("genero",genero).apply();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("localidad",localidad).apply();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("edad",edad).apply();
 
                 if ( nivel==0 ) {
+                    //Pasamos al Diagnostico
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
+
                     Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
                     startActivity(intent);
                     finish();
                     Toast.makeText(LoginActivity.this, "Bienvenido Diagnostico:"+nivel, Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    //Pasamos a HomeActivuty
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
                     getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);

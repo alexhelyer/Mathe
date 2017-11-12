@@ -1,11 +1,14 @@
 package com.alex.helyer.mathe;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +17,11 @@ public class ModificarDatosActivity extends AppCompatActivity {
 
     Spinner spinLocalidad;
     Spinner spinEdad;
+    Spinner spinGenero;
     TextView guardarDatos;
+
+    EditText nombre;
+    EditText correo;
 
 
     String[] estados = new String[]{"CDMX","Aguascalientes","Baja California",
@@ -26,6 +33,8 @@ public class ModificarDatosActivity extends AppCompatActivity {
             "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"};
 
     String[] edades = new String[]{"11-","11","12","13","14","15","15+"};
+
+    String[] generos = new String[]{"Masculino","Femenino"};
 
 
     @Override
@@ -41,6 +50,28 @@ public class ModificarDatosActivity extends AppCompatActivity {
         ArrayAdapter<String> adapterEdad = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, edades );
         spinEdad.setAdapter(adapterEdad);
 
+        spinGenero = (Spinner) findViewById(R.id.genero);
+        ArrayAdapter<String> adapterGenero = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, generos );
+        spinGenero.setAdapter(adapterGenero);
+
+
+
+        nombre = (EditText) findViewById(R.id.editar_usuario);
+        correo = (EditText) findViewById(R.id.editar_correo);
+
+
+        //Obtenemos datos desde SharedPreferences;
+        String getNombre =      getSharedPreferences("PERFIL", MODE_PRIVATE).getString("nombre","nombre");
+        String getCorreo =      getSharedPreferences("PERFIL", MODE_PRIVATE).getString("correo","correo");
+        String getGenero =      getSharedPreferences("PERFIL", MODE_PRIVATE).getString("genero","genero");
+        String getLocalidad =   getSharedPreferences("PERFIL", MODE_PRIVATE).getString("localidad","localidad");
+        String getEdad =        getSharedPreferences("PERFIL", MODE_PRIVATE).getString("edad","edad");
+
+        nombre.setText(getNombre);
+        correo.setText(getCorreo);
+
+        correo.hasFocusable();
+
         guardarDatos = (TextView)findViewById(R.id.guardar_datos);
         guardarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +79,13 @@ public class ModificarDatosActivity extends AppCompatActivity {
                 actualizarDatos();
             }
         });
+
+
+        //Escondemos el teclado
+        //if(getCurrentFocus()!=null) {
+            //InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            //inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        //}
 
     }
 
@@ -60,6 +98,7 @@ public class ModificarDatosActivity extends AppCompatActivity {
         super.onResume();
         this.getSupportActionBar().show();
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Editar Perfil");
     }
 
     @Override

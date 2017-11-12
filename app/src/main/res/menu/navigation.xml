@@ -17,6 +17,11 @@
         android:title="Practicar"/>
 
     <item
+        android:id="@+id/navigation_teoria"
+        android:icon="@drawable/ic_graduate_cap_black_24dp"
+        android:title="Información"/>
+
+    <item
         android:id="@+id/navigation_acerca"
         android:icon="@drawable/ic_information_black_24dp"
         android:title="Acerca"/>
