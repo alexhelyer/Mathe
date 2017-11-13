@@ -43,7 +43,7 @@ public class EstadisticasFragment extends Fragment {
 
     LineChart chart;
     PieChart pieChart;
-    float[] yData = { 5, 10, 15, 30, 40 };
+    float[] yData = { 5, 10, 15 };
     String[] xData = { "Sony", "Huawei", "LG", "Apple", "SAMSUNG" };
 
 

@@ -1,0 +1,190 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.alex.helyer.mathe.teoria.DecimalesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:background="#DDD">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Números Decimales"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Un número decimal es aquel que se puede expresar mediante una fracción decimal."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Consta de dos partes: entera y decimal. Un ejemplo es 3.25"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Donde 3 es la parte entera y .25 la parte decimal."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Para expresar un número decimal como una fracción decimal, se pone como numerador de la fracción el número dado sin punto y como denominador la unidad seguida de tantos ceros como cifras decimales tenga ese número."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Unidades decimales"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Son fracciones decimales que tienen por numerador uno y denominador una potencia de 10."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="1/10 = 0.1   \t\t\t\t\t\t(1 décima) \n1/100 = 0.01   \t\t\t\t(1 centésima) \n 1/1000 = 0.001   \t\t(1 milésima)"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Suma y resta de números decimales"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Se colocan en columna haciendo corresponder los puntos.Se suman (o se restan) unidades con unidades, décimas con décimas, centésimas con centésimas..."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Ejemplos:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="2.35 + 6.7 = 9.05"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="6.7 - 2.35 = 4.35"/>
+
+
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Multiplicación de números decimales"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Se multiplican como si fueran números enteros.El resultado final es un número decimal que tiene una cantidad de decimales igual a la suma del número de decimales de los dos factores."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Ejemplo:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="6.2 * 5.3 = 32.86"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="División de números decimales"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Se iguala el número de cifras decimales del dividendo y el divisor, añadiendo a aquel que tuviere menos, tantos ceros como cifras decimales de diferencia hubiese, posteriormente se realiza la división."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Ejemplo:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="22.8 ÷ 12.5 = 1.824 "/>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,166 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alex.helyer.mathe.teoria.EnterosFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:background="#DDD">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Números Enteros"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="El conjunto de los números enteros está formado por los números naturales y sus respectivos valores negatvios:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="N = { ..., -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, ...}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Con los números naturales podemos realizar las misma operaciones que con números naturales, con la única diferencia de poder realizar operaciones con signos negativos."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Los números naturales están ordenados, lo que nos permite comparar dos números enteros entre sí:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Ejemplo:\n\n 1 &#62; -3          1 es mayor que -3\n -8 &#60; 5          -8 es menor que 5"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Los números naturales son ilimitados y todos valores enteros, además si a un número entero le sumamos o restamos una unidad, obtenemos otro número entero."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Operaciones con números enteros."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Nota: Si una número entero se le resta un numero negativo, la operación se convierte en una suma. Del mismo modo si a una operación se le suma un número negativo la operacion se convierte en una resta."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Suma:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="2 + (-6) = -4\n(-21) + 36 = 15\n132 + 342 = 474"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Resta:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="12 - 16 = -4\n(-1) - 61 = -62\n532 - (-32) = 564"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Nota: Cuando se realizan operaciones de multiplicación o división con numeros negativos, se debe te tener en cuenta la leyes de los signos:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Donde:\n(+) * (+) = (+)\n(+) * (-) = (-)\n(-) * (+) = (-)\n(-) * (-) = (+)"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Multiplicación:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="(-2) * 6 = (-12)\n21 * 5 = 105\n(-31) * (-11) = 341"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="División:"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="6 ÷ (-2) = (-3)\n-21 ÷ (-3) = 7\n341 ÷ 11 = 31"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

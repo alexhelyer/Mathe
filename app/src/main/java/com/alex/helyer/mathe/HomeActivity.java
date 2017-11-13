@@ -35,13 +35,13 @@ public class HomeActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, inicioFragment).commit();
                     return true;
                 case R.id.navigation_curso:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, cursoFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content, new CursopracticaFragment() ).commit();
                     return true;
                 case R.id.navigation_practicar:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, practicarFragment).commit();
                     return true;
                 case R.id.navigation_teoria:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, cursoFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content, new CursoteoriaFragment() ).commit();
                     return true;
                 case R.id.navigation_acerca:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, acercaFragment).commit();

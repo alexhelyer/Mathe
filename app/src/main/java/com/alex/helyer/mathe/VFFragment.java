@@ -27,7 +27,7 @@ public class VFFragment extends Fragment {
     Button btnVerdadero;
     Button btnFalso;
     private Boolean sonidoState, vibracionState;
-    Reactivos misreactivos = new Reactivos();
+    //Reactivos misreactivos = new Reactivos();
     ReactivosN1 reactivosN1 = new ReactivosN1();
     ReactivosN2 reactivosN2 = new ReactivosN2();
     ReactivosN3 reactivosN3 = new ReactivosN3();

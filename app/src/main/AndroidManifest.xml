@@ -25,7 +25,10 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".DiagnosticoActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".ModificarDatosActivity"></activity>
+        <activity android:name=".ModificarDatosActivity" />
+        <activity android:name=".CursoTeoriaActivity" />
+        <activity android:name=".PracticarFragmentActivity" />
+        <activity android:name=".ConfiguracionActivity"></activity>
     </application>
 
 </manifest>

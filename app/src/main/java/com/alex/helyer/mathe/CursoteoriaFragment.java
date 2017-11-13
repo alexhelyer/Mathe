@@ -1,12 +1,15 @@
 package com.alex.helyer.mathe;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +42,24 @@ public class CursoteoriaFragment extends Fragment {
         setData();
         listAdapter = new ExpandableListAdapter( getActivity() , listDataHeader, listHash);
         expandableListView.setAdapter(listAdapter);
+
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick( ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                int miID = groupPosition*4 + childPosition;
+
+                //Toast.makeText(getActivity(), "myIDsubtema:" + miID , Toast.LENGTH_SHORT).show();
+
+                Intent intent;
+                intent = new Intent(getActivity(), CursoTeoriaActivity.class);
+                intent.putExtra("ID_subtema",miID);
+                startActivity(intent);
+
+                return false;
+            }
+        });
 
         return rootView;
     }
@@ -89,4 +110,10 @@ public class CursoteoriaFragment extends Fragment {
         listHash.put(listDataHeader.get(4), probabilidad);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Teoria");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
 }

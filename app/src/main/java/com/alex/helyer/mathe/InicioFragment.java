@@ -77,7 +77,7 @@ public class InicioFragment extends Fragment {
         TabViewPagerAdapter adapter = new TabViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new PerfilFragment(), "Perfil");
         adapter.addFragment(new EstadisticasFragment(), "Estadísticas");
-        adapter.addFragment(new LogrosFragment(), "Logros");
+        //adapter.addFragment(new LogrosFragment(), "Logros");
 
         viewPager.setAdapter(adapter);
     }

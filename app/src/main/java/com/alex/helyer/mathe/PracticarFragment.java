@@ -53,27 +53,11 @@ public class PracticarFragment extends Fragment {
 
                         int miID = groupPosition*4 + childPosition;
 
-                        /*switch (miID){
-
-                            case 0:
-                                Toast.makeText(getActivity(), 0 + "", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 1:
-                                Toast.makeText(getActivity(), 1 + "", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 2:
-                                Toast.makeText(getActivity(), 2 + "", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 3:
-                                Toast.makeText(getActivity(), 3 + "", Toast.LENGTH_SHORT).show();
-                                break;
-
-                        }*/
-
-                        Toast.makeText(getActivity(), "myID:" + miID , Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), "myID:" + miID , Toast.LENGTH_SHORT).show();
 
                         Intent intent;
-                        intent = new Intent(getActivity(), QuizActivity.class);
+                        intent = new Intent(getActivity(), PracticarFragmentActivity.class);
+                        intent.putExtra("ID_subtema",miID);
                         startActivity(intent);
 
                         return false;

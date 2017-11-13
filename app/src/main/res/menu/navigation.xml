@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/navigation_teoria"
-        android:icon="@drawable/ic_graduate_cap_black_24dp"
+        android:icon="@drawable/ic_libro_abierto"
         android:title="Información"/>
 
     <item

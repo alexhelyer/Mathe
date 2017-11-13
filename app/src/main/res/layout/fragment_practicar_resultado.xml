@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.alex.helyer.mathe.PracticarResultadoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:text="Obtuviste el:"
+                    android:gravity="center"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/donut_progress"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        app:donut_text_color="@color/colorPrimaryDark"
+                        app:donut_finished_color="@color/colorPrimaryDark"
+                        android:layout_gravity="center"
+                        app:donut_progress="50"/>
+
+                </LinearLayout>
+
+            <TextView
+                    android:id="@+id/txtScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:text="5/10"
+                    android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:layout_weight="1">
+
+            <Button
+                    android:id="@+id/btnOK"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/my_button"
+                    android:textColor="@color/white"
+                    android:text="OK"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

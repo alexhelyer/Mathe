@@ -25,8 +25,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //Necesario para las graficas
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     //CircleProgres para el resultado.
+    //MaterialDialog
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     compile 'com.github.lzyzsd:circleprogress:1.2.1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -34,6 +35,6 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.android.support:design:26.+'
     compile 'com.android.support:support-v4:26.+'
-    compile 'com.github.javiersantos:MaterialStyledDialogs:2.1' //MaterialDialog
+    compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
     testCompile 'junit:junit:4.12'
 }

@@ -2,6 +2,7 @@ package com.alex.helyer.mathe;
 
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
@@ -72,15 +73,8 @@ public class AcercaFragment extends Fragment {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Toast.makeText(getActivity() , "Hey",Toast.LENGTH_SHORT).show();
-
-            // Create new fragment and transaction
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.content, new Herramientas());
-            transaction.addToBackStack(null);
-            transaction.commit();
-
-            return true;
+            Intent intent = new Intent(getActivity(), ConfiguracionActivity.class);
+            startActivity(intent);
         }
         /*
         if (id == R.id.action_logout) {

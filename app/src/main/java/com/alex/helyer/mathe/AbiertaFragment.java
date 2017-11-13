@@ -34,7 +34,7 @@ public class AbiertaFragment extends Fragment {
     TextView txtAbierta;
     EditText resAbierta;
     Button btnOk;
-    Reactivos misreactivos = new Reactivos();
+    //Reactivos misreactivos = new Reactivos();
     ReactivosN1 reactivosN1 = new ReactivosN1();
     ReactivosN2 reactivosN2 = new ReactivosN2();
     ReactivosN3 reactivosN3 = new ReactivosN3();
@@ -79,10 +79,6 @@ public class AbiertaFragment extends Fragment {
 
 
         if (session_state==2) {
-
-
-
-
 
             mi_nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",1);
             final int random = getRandom();
@@ -228,7 +224,6 @@ public class AbiertaFragment extends Fragment {
 
     public int getRandom() {
         int numero = (int) (Math.random()*5);
-
         return numero;
     }
 

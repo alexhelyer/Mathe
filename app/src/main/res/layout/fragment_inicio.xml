@@ -29,22 +29,22 @@
             app:civ_border_color="#ffffff"/>
         <TextView
             android:id="@+id/texto_puntos"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/profile_image"
             android:layout_marginTop="10dp"
             android:layout_marginRight="70dp"
-            android:text="Puntos: "
+            android:text="Puntos:"
             android:textColor="#ffffff"
             android:textSize="15dp"/>
         <TextView
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/texto_puntos"
             android:layout_marginRight="70dp"
-            android:text="Insignias: "
+            android:text="100"
             android:textColor="#ffffff"
             android:textSize="15dp"/>
         <ImageView
