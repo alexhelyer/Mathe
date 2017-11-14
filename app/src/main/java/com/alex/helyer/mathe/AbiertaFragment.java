@@ -39,6 +39,7 @@ public class AbiertaFragment extends Fragment {
     ReactivosN2 reactivosN2 = new ReactivosN2();
     ReactivosN3 reactivosN3 = new ReactivosN3();
     ImageView tips;
+    int subtema;
 
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
     int score;
@@ -75,8 +76,10 @@ public class AbiertaFragment extends Fragment {
 
         final int session_state = getActivity().getSharedPreferences("SESSION", Context.MODE_PRIVATE).getInt("session_state",0);
 
-
-
+        //Escondemos los tips si esta resolviendo el diagnostico
+        if(session_state==1){
+            tips.setVisibility(View.INVISIBLE);
+        }
 
         if (session_state==2) {
 
@@ -209,13 +212,15 @@ public class AbiertaFragment extends Fragment {
         }
 
         // ******* Dialogo de información *******///
+        //Checamos el subtema actual
+        subtema = getActivity().getSharedPreferences("SUBTEMA_ACTUAL", MODE_PRIVATE).getInt("subtema",0);
         tips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Le pasamos al método de la clase TipClass un entero que se guarda en SharedPreferences
                 //para elegir el subtema adecuado y le mandamos el contexto getActivity()
                 TipsClass tipsClass = new TipsClass();
-                tipsClass.showTipDialog(1,getActivity());
+                tipsClass.showTipDialog(subtema,getActivity());
             }
         });
 

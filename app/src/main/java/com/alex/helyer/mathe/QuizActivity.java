@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
     public void onBackPressed() {
         AlertDialog.Builder mialerta = new AlertDialog.Builder(this);
         mialerta.setTitle("¡Alerta!");
-        mialerta.setMessage("¿Deseas salir, tu progeso no se registrará?");
+        mialerta.setMessage("¿Deseas salir?, Tu progreso no se registrará");
         mialerta.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

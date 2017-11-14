@@ -32,7 +32,7 @@ public class ModificarDatosActivity extends AppCompatActivity {
             "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora","Tabasco",
             "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"};
 
-    String[] edades = new String[]{"11-","11","12","13","14","15","15+"};
+    String[] edades = new String[]{"11 años o menos","11 años","12 años","13 años","14 años","15 años","15 años o más"};
 
     String[] generos = new String[]{"Masculino","Femenino"};
 

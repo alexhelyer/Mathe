@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +52,9 @@ public class CursopracticaFragment extends Fragment {
                 int miID = groupPosition*4 + childPosition;
 
                 Toast.makeText(getActivity(), "myID:" + miID , Toast.LENGTH_SHORT).show();
+
+                //Subtema actual: Modificamos una variable para mostrar el tip adecuado
+                getActivity().getSharedPreferences("SUBTEMA_ACTUAL", MODE_PRIVATE).edit().putInt("subtema",miID+1).apply();
 
                 Intent intent;
                 intent = new Intent(getActivity(), QuizActivity.class);
