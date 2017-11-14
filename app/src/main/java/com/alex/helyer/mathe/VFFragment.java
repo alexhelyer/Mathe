@@ -34,6 +34,7 @@ public class VFFragment extends Fragment {
     int mi_nivel = 1;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
     ImageView tips;
+    int subtema;
 
     int score;
 
@@ -57,6 +58,10 @@ public class VFFragment extends Fragment {
 
         int session_state = getActivity().getSharedPreferences("SESSION", Context.MODE_PRIVATE).getInt("session_state",0);
 
+        //Escondemos los tips si esta resolviendo el diagnostico
+        if(session_state==1){
+            tips.setVisibility(View.INVISIBLE);
+        }
         if (session_state==2) {
 
             mi_nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",1);
@@ -254,13 +259,14 @@ public class VFFragment extends Fragment {
         }
 
         // ******* Dialogo de información *******///
+        subtema = getActivity().getSharedPreferences("SUBTEMA_ACTUAL", MODE_PRIVATE).getInt("subtema",0);
         tips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Le pasamos al método de la clase TipClass un entero que se guarda en SharedPreferences
                 //para elegir el subtema adecuado y le mandamos el contexto getActivity()
                 TipsClass tipsClass = new TipsClass();
-                tipsClass.showTipDialog(10,getActivity());
+                tipsClass.showTipDialog(subtema,getActivity());
             }
         });
 

@@ -69,17 +69,22 @@ public class LoginActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user = usuario.getText().toString();
-                pass = password.getText().toString();
 
-                View view = LoginActivity.this.getCurrentFocus();
-                if (view != null) {
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+                if (usuario.getText().toString().equals("") || password.getText().toString().equals("")) {
+                    Toast.makeText(LoginActivity.this, "Uno o más campos vacíos", Toast.LENGTH_SHORT).show();
+                }else{
+                    user = usuario.getText().toString();
+                    pass = password.getText().toString();
+                    View view = LoginActivity.this.getCurrentFocus();
+                    if (view != null) {
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+
+                    Login login = new Login(user, pass);
+                    login.execute((Void) null);
                 }
-
-                Login login = new Login(user,pass);
-                login.execute((Void) null);
             }
         });
 
@@ -233,7 +238,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                     startActivity(intent);
                     finish();
-                    Toast.makeText(LoginActivity.this, "Bienvenido Home:"+nivel, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Bienvenido Home:"+nivel, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -245,9 +250,9 @@ public class LoginActivity extends AppCompatActivity {
                 else if (flag==300)
                     Toast.makeText(LoginActivity.this, "Activa tu cuenta antes de continuar", Toast.LENGTH_SHORT).show();
                 else if (flag==404)
-                    Toast.makeText(LoginActivity.this, "No hay conexión con el Internet", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "No hay conexión a internet", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(LoginActivity.this, "Estamos teniendo problemas, intente otra vez", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
             }
             super.onPostExecute(aBoolean);
         }

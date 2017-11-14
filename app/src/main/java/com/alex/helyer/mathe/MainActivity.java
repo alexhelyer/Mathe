@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         //Obtenemos la variable session_state
          int session_state = getSharedPreferences("SESSION", MODE_PRIVATE).getInt("session_state",0);
 
-        Toast.makeText(this, "session_state:"+session_state, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "session_state:"+session_state, Toast.LENGTH_SHORT).show();
 
 
         //getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",3).commit();
