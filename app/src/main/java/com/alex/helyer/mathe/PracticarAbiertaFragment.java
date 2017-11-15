@@ -73,7 +73,7 @@ public class PracticarAbiertaFragment extends Fragment {
         tam = reactivos.getSize();
         indexRandom = getRandomIndex(tam);
 
-        Toast.makeText(getActivity(), "tam:"+tam , Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), "tam:"+tam , Toast.LENGTH_LONG).show();
 
         txtAbierta.setText(reactivos.getPregunta(indexRandom));
 

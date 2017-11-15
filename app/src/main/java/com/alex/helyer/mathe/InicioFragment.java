@@ -180,7 +180,7 @@ public class InicioFragment extends Fragment {
         settingsImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Settings",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"Settings",Toast.LENGTH_SHORT).show();
                 Intent intent;
                 intent = new Intent(getActivity(), ModificarDatosActivity.class);
                 startActivity(intent);

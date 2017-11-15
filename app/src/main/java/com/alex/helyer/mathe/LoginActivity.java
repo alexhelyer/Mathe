@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             datos.put("pass", mPassword);
 
             //Solo realiza una intento de peticion con duracion de 1.5seg
-            client.setMaxRetriesAndTimeout(1,1900);
+            client.setMaxRetriesAndTimeout(1,2900);
 
             client.get(URL, datos, new AsyncHttpResponseHandler() {
                 @Override
@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -229,7 +229,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
                     startActivity(intent);
                     finish();
-                    Toast.makeText(LoginActivity.this, "Bienvenido Diagnostico:"+nivel, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Bienvenido Diagnostico:"+nivel, Toast.LENGTH_SHORT).show();
                 }
                 else {
                     //Pasamos a HomeActivuty

@@ -103,7 +103,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
             getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new GradoDiagnosticoFragment()).commit();
         }
         else if (count == (NUMERO+1)) {
-            Toast.makeText(DiagnosticoActivity.this,"score:"+score,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(DiagnosticoActivity.this,"score:"+score,Toast.LENGTH_SHORT).show();
             getSupportFragmentManager().beginTransaction().replace(R.id.diagnostico, new TerminarDiagnosticoFragment()).commit();
         }
         else if (count>(NUMERO+1)) {
@@ -143,7 +143,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
                 if (statusCode==200) {
                     //Conexion exitosa
                     DatosDiagnostico = new String(responseBody);
-                    Toast.makeText(DiagnosticoActivity.this,"getExamen",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DiagnosticoActivity.this,"getExamen",Toast.LENGTH_SHORT).show();
                     //Guardamos lo que nos responde el sistema. El examen diagnostico cargado desde el PHP
                     getSharedPreferences("DIAGNOSTICO", MODE_PRIVATE).edit().putString("examen",DatosDiagnostico).commit();
                 }
@@ -184,7 +184,7 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode==200) {
                     //Conexión Existosa.
-                    Toast.makeText(DiagnosticoActivity.this, "Se guardo Nivel", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DiagnosticoActivity.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
                     Intent intent = new Intent(DiagnosticoActivity.this, HomeActivity.class);
                     startActivity(intent);

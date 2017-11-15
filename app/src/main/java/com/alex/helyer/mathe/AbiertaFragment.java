@@ -89,7 +89,7 @@ public class AbiertaFragment extends Fragment {
 
             Intent intent = getActivity().getIntent();
             mi_subte = intent.getIntExtra("ID_subtema",0);
-            Toast.makeText(getActivity(),"mi_subte"+mi_subte, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(),"mi_subte"+mi_subte, Toast.LENGTH_SHORT).show();
             mi_nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",1);
 
             ReactivosAbiertos reactivosAbiertos = new ReactivosAbiertos(mi_subte, mi_nivel);
