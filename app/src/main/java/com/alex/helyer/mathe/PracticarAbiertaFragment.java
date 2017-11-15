@@ -59,18 +59,18 @@ public class PracticarAbiertaFragment extends Fragment {
         resAbierta = (EditText) rootView.findViewById(R.id.resAbierta);
         btnOk = (Button) rootView.findViewById(R.id.btnOk);
 
-        Intent intent = getActivity().getIntent();
-        mi_subte = intent.getIntExtra("ID_subtema",0);
-
-        Datos misdatos = new Datos(mi_grado, mi_nivel, mi_subte, mi_tipo);
-
         mediaPlayer = MediaPlayer.create(getContext(),R.raw.correct);
 
-        DATOS = misdatos.getDatos();
+        Intent intent = getActivity().getIntent();
+        mi_subte = intent.getIntExtra("ID_subtema",0);
+        //Datos misdatos = new Datos(mi_grado, mi_nivel, mi_subte, mi_tipo);
+        ReactivosAbiertos reactivosAbiertos = new ReactivosAbiertos(mi_subte, mi_nivel);
+
+        DATOS = reactivosAbiertos.getDatos();
 
         final Reactivos reactivos = new Reactivos(DATOS);
-        tam = reactivos.getSize();
 
+        tam = reactivos.getSize();
         indexRandom = getRandomIndex(tam);
 
         Toast.makeText(getActivity(), "tam:"+tam , Toast.LENGTH_LONG).show();

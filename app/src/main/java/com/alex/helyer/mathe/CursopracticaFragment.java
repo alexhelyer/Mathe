@@ -53,6 +53,7 @@ public class CursopracticaFragment extends Fragment {
 
                 Intent intent;
                 intent = new Intent(getActivity(), QuizActivity.class);
+                intent.putExtra("ID_subtema",miID);
                 startActivity(intent);
 
                 return false;
