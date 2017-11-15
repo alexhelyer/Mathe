@@ -2,6 +2,7 @@ package com.alex.helyer.mathe;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -31,7 +32,6 @@ public class VFFragment extends Fragment {
     ReactivosN1 reactivosN1 = new ReactivosN1();
     ReactivosN2 reactivosN2 = new ReactivosN2();
     ReactivosN3 reactivosN3 = new ReactivosN3();
-    int mi_nivel = 1;
     ExamenDiagnostico miDiagnostico = new ExamenDiagnostico();
     ImageView tips;
     int subtema;
@@ -39,6 +39,11 @@ public class VFFragment extends Fragment {
     int score;
 
     MediaPlayer mediaPlayer;
+
+    int mi_nivel = 1;
+    int mi_subte = 0;
+
+    int indexRandom = 0;
 
     public VFFragment() {
         // Required empty public constructor
@@ -64,16 +69,25 @@ public class VFFragment extends Fragment {
         }
         if (session_state==2) {
 
+            Intent intent = getActivity().getIntent();
+            mi_subte = intent.getIntExtra("ID_subtema",0);
+            Toast.makeText(getActivity(),"mi_subte"+mi_subte, Toast.LENGTH_SHORT).show();
             mi_nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",1);
-            final int random = getRandom();
 
-            if (mi_nivel==3) {
-                txtVF.setText(reactivosN3.getPreguntas_VF(random));
+            ReactivosVF reactivosVF = new ReactivosVF(mi_subte, mi_nivel);
+            String DATOS = reactivosVF.getDatos();
+            final Reactivos reactivos = new Reactivos(DATOS);
+
+            indexRandom = getRandomIndex(reactivos.getSize());
+
+            //final int random = getRandom();
+
+                txtVF.setText(reactivos.getPregunta(indexRandom));
 
                 btnVerdadero.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (reactivosN3.checkRespuesta_VF("verdadero",random)==1) {
+                        if (reactivos.checkRespuesta("verdadero",indexRandom)==1) {
                             //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                             score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                             getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
@@ -96,33 +110,7 @@ public class VFFragment extends Fragment {
                 btnFalso.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (reactivosN3.checkRespuesta_VF("falso",random)==1) {
-                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                            //Check if sound is enable
-                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                            if(sonidoState){ mediaPlayer.start(); }
-                        }
-                        else {
-                            //Check if vibration is enable
-                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                            if(vibracionState) {
-                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                                vibrator.vibrate(160);
-                            }
-                        }
-                        ((FragmentTransition)getActivity()).siguiente();
-                    }
-                });
-            }
-            else if (mi_nivel==2) {
-                txtVF.setText(reactivosN2.getPreguntas_VF(random));
-
-                btnVerdadero.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (reactivosN2.checkRespuesta_VF("verdadero",random)==1) {
+                        if (reactivos.checkRespuesta("falso",indexRandom)==1) {
                             //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
                             score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                             getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
@@ -142,78 +130,8 @@ public class VFFragment extends Fragment {
                     }
                 });
 
-                btnFalso.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (reactivosN2.checkRespuesta_VF("falso",random)==1) {
-                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                            //Check if sound is enable
-                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                            if(sonidoState){ mediaPlayer.start(); }
-                        }
-                        else {
-                            //Check if vibration is enable
-                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                            if(vibracionState) {
-                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                                vibrator.vibrate(160);
-                            }
-                        }
-                        ((FragmentTransition)getActivity()).siguiente();
-                    }
-                });
-            }
-            else {
-                txtVF.setText(reactivosN1.getPreguntas_VF(random));
 
-                btnVerdadero.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (reactivosN1.checkRespuesta_VF("verdadero",random)==1) {
-                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                            //Check if sound is enable
-                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                            if(sonidoState){ mediaPlayer.start(); }
-                        }
-                        else {
-                            //Check if vibration is enable
-                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                            if(vibracionState) {
-                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                                vibrator.vibrate(160);
-                            }
-                        }
-                        ((FragmentTransition)getActivity()).siguiente();
-                    }
-                });
 
-                btnFalso.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (reactivosN1.checkRespuesta_VF("falso",random)==1) {
-                            //Toast.makeText(getActivity(), "Correcto", Toast.LENGTH_SHORT).show();
-                            score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
-                            getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
-                            //Check if sound is enable
-                            sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
-                            if(sonidoState){ mediaPlayer.start(); }
-                        }
-                        else {
-                            //Check if vibration is enable
-                            vibracionState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("vibracion",false);
-                            if(vibracionState) {
-                                Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                                vibrator.vibrate(160);
-                            }
-                        }
-                        ((FragmentTransition)getActivity()).siguiente();
-                    }
-                });
-            }
 
 
         }
@@ -275,10 +193,9 @@ public class VFFragment extends Fragment {
         return rootView;
     }
 
-    public int getRandom() {
-        int numero = (int) (Math.random()*5);
-
-        return numero;
+    public int getRandomIndex(int size) {
+        int random = (int) (Math.random()*size);
+        return random;
     }
 
 }

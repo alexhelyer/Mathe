@@ -34,16 +34,16 @@ public class CursoTeoriaActivity extends AppCompatActivity {
 
         switch (opc) {
             case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new DecimalesFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new NaturalesFragment ()).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new NaturalesFragment()).commit();
-                break;
-            case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new EnterosFragment()).commit();
                 break;
-            case 3:
+            case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new FraccionariosFragment()).commit();
+                break;
+            case 3:
+                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new DecimalesFragment()).commit();
                 break;
             case 4:
                 getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new FactorizacionFragment()).commit();
