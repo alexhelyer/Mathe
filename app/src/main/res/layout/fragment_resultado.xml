@@ -63,6 +63,7 @@
                 android:background="#EFEFEF"
                 android:orientation="vertical">
 
+                <!--
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -162,6 +163,7 @@
                     android:background="@drawable/btn_red"
                     android:textColor="@color/white"
                     android:text="Pregunta 10"/>
+                    -->
 
                 <Button
                     android:id="@+id/btnOK"

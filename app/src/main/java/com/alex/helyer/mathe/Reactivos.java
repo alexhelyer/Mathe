@@ -29,6 +29,25 @@ public class Reactivos {
         return respuesta;
     }
 
+    public String getOpcMultiple(int index, int opc) {
+        String respuesta = "null";
+        switch (opc) {
+            case 1:
+                respuesta = getDatoJSON(DATOS,index,"incorrecta1");
+                break;
+            case 2:
+                respuesta = getDatoJSON(DATOS,index,"incorrecta2");
+                break;
+            case 3:
+                respuesta = getDatoJSON(DATOS,index,"incorrecta3");
+                break;
+            case 4:
+                respuesta = getDatoJSON(DATOS,index,"incorrecta4");
+                break;
+        }
+        return respuesta;
+    }
+
     public String getRespuesta(int index) {
         String respuesta = getDatoJSON(DATOS,index,"respuesta");
         return respuesta;
@@ -43,6 +62,8 @@ public class Reactivos {
 
         return res;
     }
+
+
 
     private JSONArray getJSONArray(String json) {
         JSONArray jsonArray = null;
