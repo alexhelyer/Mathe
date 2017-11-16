@@ -49,39 +49,9 @@ public class AcercaFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.acerca_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Acerca");
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(getActivity(), ConfiguracionActivity.class);
-            startActivity(intent);
-        }
-        /*
-        if (id == R.id.action_logout) {
-            Toast.makeText(getActivity(),"logout", Toast.LENGTH_SHORT).show();
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
     }
 }

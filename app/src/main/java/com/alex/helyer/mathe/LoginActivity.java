@@ -148,8 +148,7 @@ public class LoginActivity extends AppCompatActivity {
             datos.put("pass", mPassword);
 
             //Solo realiza una intento de peticion con duracion de 1.5seg
-            client.setMaxRetriesAndTimeout(1,2900);
-
+            //client.setMaxRetriesAndTimeout(1,2900);
             client.get(URL, datos, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -161,7 +160,6 @@ public class LoginActivity extends AppCompatActivity {
                             getUser = jsonobj.getString("usuario");
                             getNivel = jsonobj.getString("nivel");
                             nivel = Integer.parseInt(getNivel);
-
                             //Obtenemos los datos personales
                             nombre = jsonobj.getString("nombre");
                             correo = jsonobj.getString("correo");
@@ -184,14 +182,19 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    cancel(true);
+                    onPostExecute(true);
                 }
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     //Fallo la Conexion.
-                    //Toast.makeText(LoginActivity.this, "No hay conexión con el Internet", Toast.LENGTH_SHORT).show();
                     flag = 404;
+                    cancel(true);
+                    onPostExecute(true);
                 }
+
+
             });
 
             super.onPreExecute();
@@ -201,12 +204,10 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
             try {
                 // Simulate network access.
-                Thread.sleep(3000);
+                Thread.sleep(20000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
 
             return true;
         }
@@ -252,10 +253,11 @@ public class LoginActivity extends AppCompatActivity {
                 else if (flag==404)
                     Toast.makeText(LoginActivity.this, "No hay conexión a internet", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "No es posible conectarse al servidor", Toast.LENGTH_SHORT).show();
             }
             super.onPostExecute(aBoolean);
         }
+
     }
 
 
