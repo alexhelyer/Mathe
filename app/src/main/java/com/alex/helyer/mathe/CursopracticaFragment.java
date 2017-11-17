@@ -79,10 +79,10 @@ public class CursopracticaFragment extends Fragment {
         listDataHeader.add("Probabilidad");
 
         List<String> aritmetica = new ArrayList<>();
-        aritmetica.add("Decimales");
         aritmetica.add("Naturales");
         aritmetica.add("Enteros");
         aritmetica.add("Fraccionarios");
+        aritmetica.add("Decimales");
 
         List<String> algebra = new ArrayList<>();
         algebra.add("Ecuación de primer grado x+a=b");
