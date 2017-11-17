@@ -22,25 +22,8 @@ public class TipsClass {
             //https://github.com/javiersantos/MaterialStyledDialogs/wiki/Adding-a-custom-view
 
             //--------------> Aritmética <-------------
-            case 1: //Decimales
-                //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                //View customView = inflater.inflate(R.layout.image_profile_container, null);
 
-                    dialogHeader.setStyle(Style.HEADER_WITH_TITLE)
-                    .setScrollable(true)
-                    .setHeaderDrawable(R.drawable.header)
-                    .withDialogAnimation(true)
-                    .withDarkerOverlay(true)
-                    .setTitle("Decimales")
-                    .setDescription("Los números decimales son otra forma de representar las fracciones, por esto, algunas fracciones se pueden convertir en números decimales.\n" +
-                            "\n• La Décima es la unidad dividida en 10 partes iguales = 1/10 = 0.1" +
-                            "\n• La Centésima es la unidad dividida en 100 partes iguales = 1/100 = 0.01" +
-                            "\n• La Milésima es la unidad dividida en 1000 partes iguales = 1/1000 = 0.001" +
-                            "\n\nPor ejemplo:\n" +
-                            "8/10 (ocho décimos) es lo mismo que 8 dividido 10 y el resultado de esto es: 0.8 y se lee: cero punto ocho.")
-                    .setPositiveText("Entendido");
-                break;
-            case 2: //Naturales
+            case 1: //Naturales
                 dialogHeader.setStyle(Style.HEADER_WITH_TITLE)
                         .setScrollable(true)
                         .setHeaderDrawable(R.drawable.header)
@@ -51,7 +34,7 @@ public class TipsClass {
                                 "\n• Los números naturales pertenecen al conjunto de los números enteros positivos: no tienen decimales, no son fraccionarios y se encuentran a la derecha del cero en la recta real")
                         .setPositiveText("Entendido");
                 break;
-            case 3: //Enteros
+            case 2: //Enteros
                 dialogHeader.setStyle(Style.HEADER_WITH_TITLE)
                         .setScrollable(true)
                         .setHeaderDrawable(R.drawable.header)
@@ -61,7 +44,7 @@ public class TipsClass {
                         .setDescription("Los números enteros abarcan a los números naturales, incluyendo al cero y a los números negativos")
                         .setPositiveText("Entendido");
                 break;
-            case 4: //Fraccionarios
+            case 3: //Fraccionarios
                 dialogHeader.setStyle(Style.HEADER_WITH_TITLE)
                         .setHeaderDrawable(R.drawable.header)
                         .setScrollable(true)
@@ -69,6 +52,24 @@ public class TipsClass {
                         .withDarkerOverlay(true)
                         .setTitle("Fraccionarios")
                         .setDescription("Para resolver una división de fracciones debes multiplicar el numerador de una fracción, por el denominador de la otra y viceversa")
+                        .setPositiveText("Entendido");
+                break;
+            case 4: //Decimales
+                //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                //View customView = inflater.inflate(R.layout.image_profile_container, null);
+
+                dialogHeader.setStyle(Style.HEADER_WITH_TITLE)
+                        .setScrollable(true)
+                        .setHeaderDrawable(R.drawable.header)
+                        .withDialogAnimation(true)
+                        .withDarkerOverlay(true)
+                        .setTitle("Decimales")
+                        .setDescription("Los números decimales son otra forma de representar las fracciones, por esto, algunas fracciones se pueden convertir en números decimales.\n" +
+                                "\n• La Décima es la unidad dividida en 10 partes iguales = 1/10 = 0.1" +
+                                "\n• La Centésima es la unidad dividida en 100 partes iguales = 1/100 = 0.01" +
+                                "\n• La Milésima es la unidad dividida en 1000 partes iguales = 1/1000 = 0.001" +
+                                "\n\nPor ejemplo:\n" +
+                                "8/10 (ocho décimos) es lo mismo que 8 dividido 10 y el resultado de esto es: 0.8 y se lee: cero punto ocho.")
                         .setPositiveText("Entendido");
                 break;
             //--------------> Álgebra <-------------
