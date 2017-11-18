@@ -31,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -48,6 +49,8 @@ public class InicioFragment extends Fragment {
     private ImageView settingsImage;
     private CircleImageView circleImageView;
 
+    private TextView puntos;
+
 
     public InicioFragment() {
         // Required empty public constructor
@@ -62,10 +65,15 @@ public class InicioFragment extends Fragment {
 
         mViewPager = (ViewPager) rootView.findViewById(R.id.iviewpager);
 
+        puntos = (TextView) rootView.findViewById(R.id.mis_puntos);
+
+
         tabLayout = (TabLayout) rootView.findViewById(R.id.itabs);
         tabLayout.setupWithViewPager(mViewPager);
 
         setupViewPager(mViewPager);
+
+        puntos.setText(""+getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0));
 
         return rootView;
     }
@@ -116,7 +124,7 @@ public class InicioFragment extends Fragment {
         TabViewPagerAdapter adapter = new TabViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new PerfilFragment(), "Perfil");
         adapter.addFragment(new EstadisticasFragment(), "Estadísticas");
-        //adapter.addFragment(new LogrosFragment(), "Logros");
+        adapter.addFragment(new LogrosFragment(), "Logros");
 
         viewPager.setAdapter(adapter);
     }

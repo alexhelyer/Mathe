@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +46,8 @@ public class ResultadoFragment extends Fragment {
         txtScore.setText(Integer.toString(score)+"/10");
         donutProgress.setDonut_progress(Integer.toString(score*10));
 
+        cambiarPuntaje(score);
+
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +58,12 @@ public class ResultadoFragment extends Fragment {
 
 
         return rootView;
+    }
+    public void cambiarPuntaje(int score){
+        int nivel =   getActivity().getSharedPreferences("ALGORITMO", MODE_PRIVATE).getInt("nivel",0);
+        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+        Mispuntos = Mispuntos + score*nivel*10;
+        getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putInt("puntos",Mispuntos).commit();
     }
 
 }

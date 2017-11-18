@@ -39,6 +39,7 @@
             android:textColor="#ffffff"
             android:textSize="15dp"/>
         <TextView
+            android:id="@+id/mis_puntos"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_centerHorizontal="true"
@@ -67,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorColor="#2a2a42"
         app:tabSelectedTextColor="@color/white"
         android:background="@color/colorPrimary"/>
 
