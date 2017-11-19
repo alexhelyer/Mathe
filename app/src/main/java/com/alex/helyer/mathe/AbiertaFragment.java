@@ -110,6 +110,9 @@ public class AbiertaFragment extends Fragment {
                             if (reactivos.checkRespuesta(mirespuesta,indexRandom)==1) {
                                 score = getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).getInt("score",0) + 1 ;
                                 getActivity().getSharedPreferences("SCORE", Context.MODE_PRIVATE).edit().putInt("score",score).commit();
+
+                                //Agregamos el valor
+                                setCorrectAnwser(1);
                                 //Check if sound is enable
                                 sonidoState = getActivity().getSharedPreferences("SETTINGS", MODE_PRIVATE).getBoolean("sonido",false);
                                 if(sonidoState){ mediaPlayer.start(); }
@@ -181,6 +184,22 @@ public class AbiertaFragment extends Fragment {
     public int getRandomIndex(int size) {
         int random = (int) (Math.random()*size);
         return random;
+    }
+
+    private void setCorrectAnwser(int index) {
+        String mi_efectividad = getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).getString("efectividad", "0-0-0");
+        String[] midatos = mi_efectividad.split("-");
+        int[] mis_numeros = new int[3];
+        for ( int i=0; i<midatos.length; i++ ) {
+            if (i==index)
+                mis_numeros[i] = Integer.parseInt(midatos[i]) + 1;
+            else
+                mis_numeros[i] = Integer.parseInt(midatos[i]);
+        }
+
+
+        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putString("efectividad",mis_numeros[0]+"-"+mis_numeros[1]+"-"+mis_numeros[2]).apply();
+
     }
 
 }

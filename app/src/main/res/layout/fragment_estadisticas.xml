@@ -65,6 +65,31 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/txtPromedioGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Promedio General"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:id="@+id/promedio_general"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:donut_text_color="@color/colorPrimary"
+                    app:donut_finished_color="@color/colorPrimary"
+                    android:layout_gravity="center"
+                    app:donut_progress="50"/>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -125,6 +125,11 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
             int nivel = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getInt("nivel",-1);
             nivel = CheckNivel(promedio,nivel);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
+
+            //Guardamos los datos del promedio.
+            setPromedioGeneral(score);
+
+            //getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("promedio_general", "0-1");
             finish();
         }
 
@@ -186,5 +191,19 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
         return nivel;
     }
+
+    private String setPromedioGeneral(int mi_score) {
+        String datos = getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("promedio_general", "0-0");
+        String[] midatos = datos.split("-");
+
+        int total = Integer.parseInt(midatos[0]) + mi_score;
+        int count = Integer.parseInt(midatos[1]) + 1;
+
+        String mi_promedio_general = total + "-" + count ;
+        getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("promedio_general",mi_promedio_general).apply();
+        return null;
+    }
+
+
 
 }

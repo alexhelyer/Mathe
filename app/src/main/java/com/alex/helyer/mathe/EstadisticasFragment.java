@@ -43,14 +43,20 @@ public class EstadisticasFragment extends Fragment {
 
     LineChart chart;
     PieChart pieChart;
-    float[] yData = { 5, 10, 15 };
-    String[] xData = { "Sony", "Huawei", "LG", "Apple", "SAMSUNG" };
+    float[] yData = { 0, 0, 0 };
+    String[] xData = { "Reactivos Multiples", "Reactivos Abiertos", "Reactivos Verdadero-Falso"};
+
+
+
 
 
     TextView Nivel ;
     TextView Datos;
 
     DonutProgress Promedio;
+    DonutProgress PromedioGenerales;
+
+    TextView PromedioGeneral;
 
     public EstadisticasFragment() {
         // Required empty public constructor
@@ -66,11 +72,15 @@ public class EstadisticasFragment extends Fragment {
         Nivel = (TextView) rootView.findViewById(R.id.txtNivel);
         Datos = (TextView) rootView.findViewById(R.id.txtDatos);
         Promedio = (DonutProgress) rootView.findViewById(R.id.promedio_progress);
+        PromedioGenerales = (DonutProgress) rootView.findViewById(R.id.promedio_general);
+        PromedioGeneral = (TextView) rootView.findViewById(R.id.txtPromedioGeneral);
 
         int nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",-1);
         String datos = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("datos","07-08-07-08-07");
         String txtPromedio = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("promedio", "0");
         double promporcent = Double.parseDouble(txtPromedio)*10;
+
+        String txtPromedioGeneral = getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).getString("promedio_general", "0-0");
 
 
         int procent = (int) promporcent;
@@ -78,7 +88,12 @@ public class EstadisticasFragment extends Fragment {
 
         Nivel.setText("Nivel: "+nivel);
         Datos.setText(datos);
+
+        //PromedioGeneral.setText(""+getPromedioGeneral(txtPromedioGeneral));
+        PromedioGeneral.setText(txtPromedioGeneral);
+
         Promedio.setDonut_progress(Integer.toString(procent));
+        PromedioGenerales.setDonut_progress( Integer.toString((int)(getPromedioGeneral(txtPromedioGeneral)*10)) );
         return rootView;
     }
 
@@ -97,12 +112,12 @@ public class EstadisticasFragment extends Fragment {
         int[] numArr = {1,2,3,4,5,6};
 
         final HashMap<Integer, String> numMap = new HashMap<>();
-        numMap.put(1, "enero");
-        numMap.put(2, "febrero");
-        numMap.put(3, "marzo");
-        numMap.put(4, "abril");
-        numMap.put(5, "mayo");
-        numMap.put(6, "junio");
+        numMap.put(1, "");
+        numMap.put(2, "");
+        numMap.put(3, "");
+        numMap.put(4, "");
+        numMap.put(5, "");
+        numMap.put(6, "");
 
         List<Entry> entries1 = new ArrayList<>();
 
@@ -163,7 +178,10 @@ public class EstadisticasFragment extends Fragment {
 
             @Override
             public void onValueSelected(Entry e, Highlight h) {
-                Toast.makeText(getActivity(), xData[(Integer) e.getData()]+" : " + yData[(Integer) e.getData()], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), xData[(Integer) e.getData()]+" : " + yData[(Integer) e.getData()], Toast.LENGTH_SHORT).show();
+                String mi_efectividad = getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).getString("efectividad", "0-0-0");
+                String[] midatos = mi_efectividad.split("-");
+                Toast.makeText(getActivity(), xData[(Integer) e.getData()]+" : " + midatos[(Integer) e.getData()], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -179,8 +197,10 @@ public class EstadisticasFragment extends Fragment {
     private void addData() {
         ArrayList<PieEntry> yVals1 = new ArrayList<>();
 
-        for (int i = 0; i < yData.length; i++)
-            yVals1.add(new PieEntry(yData[i], i));
+        String mi_efectividad = getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).getString("efectividad", "0-0-0");
+        String[] midatos = mi_efectividad.split("-");
+        for (int i = 0; i < midatos.length; i++)
+            yVals1.add(new PieEntry(Integer.parseInt(midatos[i]), i));
 
         ArrayList<String> xVals = new ArrayList<String>();
 
@@ -224,6 +244,19 @@ public class EstadisticasFragment extends Fragment {
 
         // update pie chart
         pieChart.invalidate();
+    }
+
+    public double getPromedioGeneral(String datos) {
+        String[] midatos = datos.split("-");
+
+        double promedio = 0;
+
+        if ( Double.parseDouble(midatos[1]) == 0 )
+            promedio =  -1;
+        else
+            promedio =  Double.parseDouble(midatos[0]) / Double.parseDouble(midatos[1]);
+
+        return promedio;
     }
 
 }
