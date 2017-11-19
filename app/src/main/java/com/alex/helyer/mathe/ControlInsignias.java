@@ -20,7 +20,7 @@ public class ControlInsignias {
         switch (indice) {
             case 1:
                 AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(context);
-                alertDialog2.setMessage("¡Esta insignia va de nuestra parte! tu nivel es"+puntos);
+                alertDialog2.setMessage("¡Esta insignia va de nuestra parte!");
                 alertDialog2.setTitle("¡Hola!").show();
                 break;
             case 2:
@@ -70,16 +70,31 @@ public class ControlInsignias {
                 }
                 break;
             case 7:
-                alertDialog.setMessage("Necesitas 350 puntos para desbloquear esta insignia");
-                alertDialog.setTitle("Ups").show();
+                if(puntos<10000) {
+                    alertDialog.setMessage("Necesitas 10000 puntos para desbloquear esta insignia");
+                    alertDialog.setTitle("Ups").show();
+                } else{
+                    alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 10000 puntos ;)");
+                    alertDialog.setTitle("Ups").show();
+                }
                 break;
             case 8:
-                alertDialog.setMessage("Necesitas 400 puntos para desbloquear esta insignia");
-                alertDialog.setTitle("Ups").show();
+                if(puntos<15000) {
+                    alertDialog.setMessage("Necesitas 15000 puntos para desbloquear esta insignia");
+                    alertDialog.setTitle("Ups").show();
+                } else{
+                    alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 15000 puntos ;)");
+                    alertDialog.setTitle("Ups").show();
+                }
                 break;
             case 9:
-                alertDialog.setMessage("Necesitas 450 puntos para desbloquear esta insignia");
-                alertDialog.setTitle("Ups").show();
+                if(puntos<20000) {
+                    alertDialog.setMessage("Necesitas 20000 puntos para desbloquear esta insignia");
+                    alertDialog.setTitle("Ups").show();
+                } else{
+                    alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 20000 puntos ;)");
+                    alertDialog.setTitle("Ups").show();
+                }
                 break;
         }
 

@@ -122,21 +122,30 @@ public class LogrosFragment extends Fragment {
 
     public void cambiarImagen(){
         int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
-        imageView1.setImageResource(R.mipmap.house); //Insignia de regalo
+        imageView1.setImageResource(R.mipmap.insignia1); //Insignia de regalo
         if(Mispuntos >= 100){
-            imageView2.setImageResource(R.mipmap.house);
+            imageView2.setImageResource(R.mipmap.insignia2);
         }
         if(Mispuntos >= 500){
-            imageView3.setImageResource(R.mipmap.house);
+            imageView3.setImageResource(R.mipmap.insignia3);
         }
         if(Mispuntos >= 1000){
-            imageView4.setImageResource(R.mipmap.house);
+            imageView4.setImageResource(R.mipmap.insignia4);
         }
         if(Mispuntos >= 2000){
-            imageView5.setImageResource(R.mipmap.house);
+            imageView5.setImageResource(R.mipmap.insignia5);
         }
         if(Mispuntos >= 5000){
-            imageView6.setImageResource(R.mipmap.house);
+            imageView6.setImageResource(R.mipmap.insignia6);
+        }
+        if(Mispuntos >= 10000){
+            imageView7.setImageResource(R.mipmap.insignia7);
+        }
+        if(Mispuntos >= 15000){
+            imageView8.setImageResource(R.mipmap.insignia8);
+        }
+        if(Mispuntos >= 20000){
+            imageView9.setImageResource(R.mipmap.insignia9);
         }
 
     }
