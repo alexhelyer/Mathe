@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.alex.helyer.mathe.teoria.Algebra01Fragment;
 import com.alex.helyer.mathe.teoria.DecimalesFragment;
 import com.alex.helyer.mathe.teoria.EnterosFragment;
 import com.alex.helyer.mathe.teoria.FactorizacionFragment;
@@ -46,10 +47,10 @@ public class CursoTeoriaActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new DecimalesFragment()).commit();
                 break;
             case 4:
-                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new FactorizacionFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new Algebra01Fragment()).commit();
                 break;
             case 5:
-                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new FactorizacionFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new Algebra01Fragment()).commit();
                 break;
             case 6:
                 getSupportFragmentManager().beginTransaction().replace(R.id.teoria_content, new FactorizacionFragment()).commit();

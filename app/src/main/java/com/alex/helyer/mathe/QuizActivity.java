@@ -116,9 +116,11 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
             getSupportFragmentManager().beginTransaction().replace(R.id.QuizContent, new ResultadoFragment()).commit();
         }
         else if (count>10) {
+
             String datos = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getString("datos","08-08-08-08-08");
             datos = insertarDato(datos,score);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("datos",datos).commit();
+
             double promedio = getPromedioDatos(datos);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("promedio", ""+promedio).commit();
             Toast.makeText(this, "Finish: "+datos+" prom:"+promedio, Toast.LENGTH_LONG).show();
@@ -128,6 +130,13 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
             //Guardamos los datos del promedio.
             setPromedioGeneral(score);
+
+
+
+            //Guardamos desempeño del alumno para presentarlo en las graficas.
+            String desempenio = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getString("desempenio","00-00-00-00-00");
+            desempenio = insertarDato(desempenio,score);
+            getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("desempenio",desempenio).apply();
 
             //getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("promedio_general", "0-1");
             finish();

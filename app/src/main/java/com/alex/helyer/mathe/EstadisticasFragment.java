@@ -50,10 +50,10 @@ public class EstadisticasFragment extends Fragment {
 
 
 
-    TextView Nivel ;
-    TextView Datos;
+    //TextView Nivel ;
+    //TextView Datos;
 
-    DonutProgress Promedio;
+    //DonutProgress Promedio;
     DonutProgress PromedioGenerales;
 
     TextView PromedioGeneral;
@@ -69,9 +69,9 @@ public class EstadisticasFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_estadisticas, container, false);
 
-        Nivel = (TextView) rootView.findViewById(R.id.txtNivel);
-        Datos = (TextView) rootView.findViewById(R.id.txtDatos);
-        Promedio = (DonutProgress) rootView.findViewById(R.id.promedio_progress);
+        //Nivel = (TextView) rootView.findViewById(R.id.txtNivel);
+        //Datos = (TextView) rootView.findViewById(R.id.txtDatos);
+        //Promedio = (DonutProgress) rootView.findViewById(R.id.promedio_progress);
         PromedioGenerales = (DonutProgress) rootView.findViewById(R.id.promedio_general);
         PromedioGeneral = (TextView) rootView.findViewById(R.id.txtPromedioGeneral);
 
@@ -86,14 +86,53 @@ public class EstadisticasFragment extends Fragment {
         int procent = (int) promporcent;
 
 
-        Nivel.setText("Nivel: "+nivel);
-        Datos.setText(datos);
+        //Nivel.setText("Nivel: "+nivel);
+        //Datos.setText(datos);
 
         //PromedioGeneral.setText(""+getPromedioGeneral(txtPromedioGeneral));
-        PromedioGeneral.setText(txtPromedioGeneral);
+        //PromedioGeneral.setText(txtPromedioGeneral);
 
-        Promedio.setDonut_progress(Integer.toString(procent));
+        //Promedio.setDonut_progress(Integer.toString(procent));
         PromedioGenerales.setDonut_progress( Integer.toString((int)(getPromedioGeneral(txtPromedioGeneral)*10)) );
+
+
+
+        //LineChart
+        LineChart chart = (LineChart) rootView.findViewById(R.id.chart);
+
+        Description description = new Description();
+        description.setTextColor(Color.BLUE);
+        description.setText("");
+        chart.setDescription(description);
+
+        int[] numArr = getdesempenio();
+
+        List<Entry> entries1 = new ArrayList<>();
+
+        int x = 0;
+        for(int num : numArr){
+            x++;
+            entries1.add(new Entry(x, num));
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries1, "Desempeño");
+        dataSet.setColors(Color.parseColor("#3498DB"));
+        dataSet.setCircleColor(Color.parseColor("#3498DB"));
+        dataSet.setDrawCircles(true);
+
+
+        LineData data = new LineData(dataSet);
+        chart.setData(data);
+        chart.invalidate();
+
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return "";
+            }
+        });
+
         return rootView;
     }
 
@@ -103,6 +142,7 @@ public class EstadisticasFragment extends Fragment {
 
 
         //LINE CHART
+        /*
         chart = getView().findViewById(R.id.chart);
         Description description = new Description();
         description.setTextColor(Color.BLUE);
@@ -117,7 +157,7 @@ public class EstadisticasFragment extends Fragment {
         numMap.put(3, "");
         numMap.put(4, "");
         numMap.put(5, "");
-        numMap.put(6, "");
+        numMap.put(5, "");
 
         List<Entry> entries1 = new ArrayList<>();
 
@@ -147,7 +187,7 @@ public class EstadisticasFragment extends Fragment {
         });
         chart.setData(data);
         chart.invalidate();
-
+*/
 
         //PIE CHART
 
@@ -155,7 +195,7 @@ public class EstadisticasFragment extends Fragment {
         pieChart.setUsePercentValues(true);
         Description description2 = new Description();
         description2.setTextColor(Color.BLUE);
-        description2.setText("Efectividad");
+        description2.setText("");
         pieChart.setDescription(description2);
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(ColorTemplate.COLOR_SKIP);
@@ -208,7 +248,7 @@ public class EstadisticasFragment extends Fragment {
             xVals.add(xData[i]);
 
         // create pie data set
-        PieDataSet dataSet = new PieDataSet(yVals1, "Market Share");
+        PieDataSet dataSet = new PieDataSet(yVals1, "Reactivos");
         dataSet.setSliceSpace(3);
         dataSet.setSelectionShift(5);
 
@@ -257,6 +297,20 @@ public class EstadisticasFragment extends Fragment {
             promedio =  Double.parseDouble(midatos[0]) / Double.parseDouble(midatos[1]);
 
         return promedio;
+    }
+
+    public int[] getdesempenio() {
+
+        String datos = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("desempenio","00-00-00-00-00");
+        String[] midatos = datos.split("-");
+
+        int[] respuesta = new int[5];
+
+        for (int i=0; i<midatos.length; i++) {
+            respuesta[i] = Integer.parseInt(midatos[i]);
+        }
+
+        return respuesta;
     }
 
 }
