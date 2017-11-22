@@ -29,7 +29,7 @@
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:gravity="center"
-                android:text="Version (1.0.1)"/>
+                android:text="Versión (1.0.1)"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
                 android:padding="20dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="left"
-                android:text="Mathe te permite mejorar tus conocimientos matematicos.\n\n ¡Usalo donde quieras!"/>
+                android:text="Mathe te permite mejorar tus conocimientos matematicos.\n\n ¡Úsalo donde quieras!"/>
 
             <ImageView
                 android:layout_width="120dp"

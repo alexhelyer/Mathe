@@ -113,7 +113,7 @@ public class CursoteoriaFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Teoria");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Teoría");
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 }
