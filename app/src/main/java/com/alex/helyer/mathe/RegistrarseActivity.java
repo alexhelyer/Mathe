@@ -1,5 +1,6 @@
 package com.alex.helyer.mathe;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -153,7 +154,9 @@ public class RegistrarseActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode==200) {
-                    Toast.makeText(RegistrarseActivity.this, new String(responseBody), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegistrarseActivity.this, new String(responseBody), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegistrarseActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }
 

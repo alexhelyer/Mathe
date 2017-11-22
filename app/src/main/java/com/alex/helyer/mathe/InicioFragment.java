@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -48,7 +49,7 @@ public class InicioFragment extends Fragment {
     private ViewPager mViewPager;
     private ImageView settingsImage;
     private CircleImageView circleImageView;
-
+    private ImageView ImageView1,ImageView2,ImageView3,ImageView4,ImageView5,ImageView6;
     private TextView puntos;
 
 
@@ -129,30 +130,29 @@ public class InicioFragment extends Fragment {
         viewPager.setAdapter(adapter);
     }
 
-    public static Bitmap generateBorders(ImageView imageView){
-        Bitmap mbitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-        Bitmap imageRounded = Bitmap.createBitmap(mbitmap.getWidth(), mbitmap.getHeight(), mbitmap.getConfig());
-        Canvas canvas = new Canvas(imageRounded);
-        Paint mpaint = new Paint();
-        mpaint.setAntiAlias(true);
-        mpaint.setShader(new BitmapShader(mbitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-        canvas.drawRoundRect((new RectF(0, 0, mbitmap.getWidth(), mbitmap.getHeight())), 100, 100, mpaint);// Round Image Corner 100 100 100 100
-        return imageRounded;
-    }
 
     public void checkProfileImage(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        int imageValue = preferences.getInt("imageValue", 0);
+        int imageValue = getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).getInt("imagen_perfil", 0);
 
         switch (imageValue){
-            case 0:
-                circleImageView.setImageResource(R.mipmap.alberteinstein);
-                break;
             case 1:
-                circleImageView.setImageResource(R.mipmap.tesla);
+                circleImageView.setImageResource(R.mipmap.sloth);
                 break;
             case 2:
-                circleImageView.setImageResource(R.mipmap.house);
+                circleImageView.setImageResource(R.mipmap.musk);
+                break;
+            case 3:
+                circleImageView.setImageResource(R.mipmap.walrus);
+                break;
+            case 4:
+                circleImageView.setImageResource(R.mipmap.wolf);
+                break;
+            case 5:
+                circleImageView.setImageResource(R.mipmap.penguin);
+                break;
+            case 6:
+                circleImageView.setImageResource(R.mipmap.ajolote);
                 break;
         }
     }
@@ -163,17 +163,28 @@ public class InicioFragment extends Fragment {
 
         //Check profile whats the current image profile
         circleImageView = (CircleImageView) getActivity().findViewById(R.id.profile_image);
-        circleImageView.setImageResource(R.mipmap.alberteinstein);
+        circleImageView.setImageResource(R.mipmap.sloth);
         checkProfileImage();
 
 
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.image_profile_container, null);
+
+        ImageView1 = (ImageView)dialogView.findViewById(R.id.image_profile1);
+        ImageView2 = (ImageView)dialogView.findViewById(R.id.image_profile2);
+        ImageView3 = (ImageView)dialogView.findViewById(R.id.image_profile3);
+        ImageView4 = (ImageView)dialogView.findViewById(R.id.image_profile4);
+        ImageView5 = (ImageView)dialogView.findViewById(R.id.image_profile5);
+        ImageView6 = (ImageView)dialogView.findViewById(R.id.image_profile6);
+
         dialogBuilder.setView(dialogView);
         final AlertDialog alertDialog = dialogBuilder.create();
-        final GridView gridView = (GridView) dialogView.findViewById(R.id.gridviewProfile);
-        gridView.setAdapter(new ImageProfileAdapter(getActivity()));
+
+
+
+
+
 
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,41 +192,48 @@ public class InicioFragment extends Fragment {
                 alertDialog.setTitle("¡Cambia tu imagen de perfil!");
                 alertDialog.show();
                 //alertDialog.getWindow().setLayout(500,600);
-                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                ImageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor imageValue = preferences.edit();
-
-                        switch (position) {
-                            case 0:
-                                imageValue.putInt("imageValue",0);
-                                circleImageView.setImageResource(R.mipmap.alberteinstein);
-                                break;
-                            case 1:
-                                imageValue.putInt("imageValue",1);
-                                circleImageView.setImageResource(R.mipmap.tesla);
-                                break;
-                            case 2:
-                                imageValue.putInt("imageValue",2);
-                                circleImageView.setImageResource(R.mipmap.house);
-                                break;
-                            case 3:
-                                circleImageView.setImageResource(R.mipmap.tesla);
-                                break;
-                            case 4:
-                                circleImageView.setImageResource(R.mipmap.tesla);
-                                break;
-                            case 5:
-                                circleImageView.setImageResource(R.mipmap.tesla);
-                                break;
-                            case 6:
-                                circleImageView.setImageResource(R.mipmap.tesla);
-                                break;
-                        }
-
-                        imageValue.apply();
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(),"presiono1",Toast.LENGTH_SHORT).show();
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 1).apply();
+                        circleImageView.setImageResource(R.mipmap.sloth);
+                    }
+                });
+                ImageView2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 2).apply();
+                        circleImageView.setImageResource(R.mipmap.musk);
+                    }
+                });
+                ImageView3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 3).apply();
+                        circleImageView.setImageResource(R.mipmap.walrus);
+                    }
+                });
+                ImageView4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 4).apply();
+                        circleImageView.setImageResource(R.mipmap.wolf);
+                    }
+                });
+                ImageView5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 5).apply();
+                        circleImageView.setImageResource(R.mipmap.penguin);
+                    }
+                });
+                ImageView6.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 6).apply();
+                        circleImageView.setImageResource(R.mipmap.ajolote);
                     }
                 });
 
@@ -237,52 +255,5 @@ public class InicioFragment extends Fragment {
 
     }
 
-    public void customAlertDialog(){
-
-    }
-
-
-    public class ImageProfileAdapter extends BaseAdapter {
-        private Context mContext;
-        public int puntos = 100;
-
-        public ImageProfileAdapter(Context c){
-            mContext = c;
-        }
-
-        public int getCount(){
-            return Insignia().length;
-        }
-
-        public Object getItem(int position){
-            return null;
-        }
-
-        public long getItemId(int position){
-            return 0;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent){
-            CircleImageView circleImageView = new CircleImageView(mContext);
-            circleImageView.setLayoutParams(new GridView.LayoutParams(85,85));
-            circleImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            circleImageView.setPadding(8,8,8,8);
-            circleImageView.setImageResource(Insignia()[position]);
-            return circleImageView;
-        }
-
-        public Integer[] Insignia(){
-            Integer[] misLogros = {
-                    R.mipmap.alberteinstein,
-                    R.mipmap.tesla,
-                    R.mipmap.tesla,
-                    R.mipmap.tesla,
-                    R.mipmap.tesla,
-                    R.mipmap.tesla
-            };
-
-            return misLogros;
-        }
-    }
 
 }

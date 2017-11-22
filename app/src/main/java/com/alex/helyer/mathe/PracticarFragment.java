@@ -116,7 +116,7 @@ public class PracticarFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Prácticar");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Practicar");
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 }
