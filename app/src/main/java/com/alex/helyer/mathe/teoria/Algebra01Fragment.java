@@ -35,7 +35,7 @@ public class Algebra01Fragment extends Fragment {
         WebSettings webSettings = web.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        web.loadUrl("file:///android_asset/tema03.html");
+        web.loadUrl("file:///android_asset/tema14.html");
 
         return rootView;
     }

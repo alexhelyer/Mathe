@@ -92,7 +92,39 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
             container.setVisibility(View.INVISIBLE);
             progress.setVisibility(View.VISIBLE);
 
-            flag = RecuperarPass(mEmail);
+            //flag = RecuperarPass(mEmail);
+
+            AsyncHttpClient client = new AsyncHttpClient();
+            String URL = "https://myappmate.000webhostapp.com/recuperarpassApp.php";
+
+            RequestParams params = new RequestParams();
+            params.put("correo", mEmail);
+
+            //Solo realiza una intento de peticion con duracion de 1.5seg
+            //client.setMaxRetriesAndTimeout(1,2400);
+
+            client.post(URL, params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    if (statusCode==200) {
+                        String respuesta = new String(responseBody);
+                        respuesta = respuesta.substring(respuesta.length()-3,respuesta.length());
+
+                        flag = Integer.parseInt(respuesta);
+
+                    }
+                    cancel(true);
+                    onPostExecute(true);
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    flag = 404;
+                    cancel(true);
+                    onPostExecute(true);
+                }
+            });
+
             super.onPreExecute();
         }
 
@@ -100,7 +132,7 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
         protected Boolean doInBackground(Void... params) {
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
+                Thread.sleep(20000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -115,7 +147,8 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
 
             if (flag==200) {
                 //Recordamos que ya inicio sesion.
-                Toast.makeText(RecuperarPasswordActivity.this, "Se envio un correo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecuperarPasswordActivity.this, "Se envio un correo con tu nueva contraseña", Toast.LENGTH_SHORT).show();
+                finish();
             }
             else if (flag==400) {
                 Toast.makeText(RecuperarPasswordActivity.this, "El correo no esta registrado", Toast.LENGTH_SHORT).show();
@@ -140,7 +173,7 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
         params.put("correo", email);
 
         //Solo realiza una intento de peticion con duracion de 1.5seg
-        client.setMaxRetriesAndTimeout(1,1800);
+        client.setMaxRetriesAndTimeout(1,2400);
 
         client.post(URL, params, new AsyncHttpResponseHandler() {
             @Override

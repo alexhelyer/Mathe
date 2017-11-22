@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         private final String mEmail;
         private final String mPassword;
 
-        public int flag = 0;
+        public int flag = -1;
         public int nivel = 0;
 
         //Datos Personales
@@ -148,7 +148,8 @@ public class LoginActivity extends AppCompatActivity {
             datos.put("pass", mPassword);
 
             //Solo realiza una intento de peticion con duracion de 1.5seg
-            //client.setMaxRetriesAndTimeout(1,2900);
+            //client.setMaxRetriesAndTimeout(1,10000);
+
             client.get(URL, datos, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -253,7 +254,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if (flag==404)
                     Toast.makeText(LoginActivity.this, "No hay conexión a internet", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(LoginActivity.this, "No es posible conectarse al servidor", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, flag + ": No es posible conectarse al servidor", Toast.LENGTH_SHORT).show();
             }
             super.onPostExecute(aBoolean);
         }

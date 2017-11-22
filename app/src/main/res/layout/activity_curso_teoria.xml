@@ -7,10 +7,10 @@
     android:orientation="vertical"
     tools:context="com.alex.helyer.mathe.CursoTeoriaActivity">
 
-    <RelativeLayout
-        android:id="@+id/teoria_content"
+    <WebView
+        android:id="@+id/mywebsite"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </RelativeLayout>
+    </WebView>
 
 </LinearLayout>

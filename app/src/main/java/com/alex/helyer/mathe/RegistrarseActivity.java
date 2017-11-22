@@ -2,6 +2,7 @@ package com.alex.helyer.mathe;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,6 +40,9 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     Button btnRegistrarse;
 
+    RelativeLayout progress_container;
+    ScrollView container;
+
     String[] estados = new String[]{"CDMX","Aguascalientes","Baja California",
             "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
             "Coahuila de Zaragoza", "Colima", "Colima", "Durango", "Guanajuato",
@@ -61,6 +67,9 @@ public class RegistrarseActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Registrarse");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progress_container = (RelativeLayout) findViewById(R.id.progress_container);
+        container = (ScrollView) findViewById(R.id.scroll_container);
 
         inNombre = (EditText) findViewById(R.id.inNombre);
         inApellido = (EditText) findViewById(R.id.inApellido);
@@ -119,8 +128,12 @@ public class RegistrarseActivity extends AppCompatActivity {
                 } else{
                     //Si todoo sale bien registramos.
                     //Toast.makeText(RegistrarseActivity.this, "REGISTRAR", Toast.LENGTH_SHORT).show();
-                    RegistrarUsuario();
+                    //RegistrarUsuario();
+                    Registrarse registrarse = new Registrarse(nombre, apellido, usuario, correo, localidad, edad, genero, password);
+                    registrarse.execute();
                 }
+
+
 
                 //Toast.makeText(RegistrarseActivity.this, spinLocalidad.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
@@ -131,11 +144,21 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
         finish();
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void RegistrarUsuario() {
+
         AsyncHttpClient client = new AsyncHttpClient();
         String URL = "https://myappmate.000webhostapp.com/registroApp.php";
 
@@ -154,7 +177,7 @@ public class RegistrarseActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode==200) {
-                    //Toast.makeText(RegistrarseActivity.this, new String(responseBody), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrarseActivity.this, new String(responseBody), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegistrarseActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -205,6 +228,134 @@ public class RegistrarseActivity extends AppCompatActivity {
         private boolean checkLength(String pass1){
             return pass1.length() >= 5;
         }
+    }
+
+
+
+    private class Registrarse extends AsyncTask<Void,Void,Boolean> {
+
+
+        private final String mNombre;
+        private final String mApellido;
+        private final String mUsuario;
+        private final String mCorreo;
+        private final String mLocalidad;
+        private final String mEdad;
+        private final String mGenero;
+        private final String mPassword;
+
+
+
+        public int flag = 0;
+        public int nivel = 0;
+
+        //Datos Personales
+        String nombre, correo, genero, localidad, edad;
+
+        Registrarse(String nombre, String apellido, String usuario, String correo, String localidad, String edad, String genero, String password) {
+            mNombre = nombre;
+            mApellido = apellido;
+            mUsuario = usuario;
+            mCorreo = correo;
+            mLocalidad = localidad;
+            mEdad = edad;
+            mGenero = genero;
+            mPassword = password;
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+
+            container.setVisibility(View.INVISIBLE);
+            progress_container.setVisibility(View.VISIBLE);
+
+
+            //Empezamos con el envio de datos
+
+            AsyncHttpClient client = new AsyncHttpClient();
+            String URL = "https://myappmate.000webhostapp.com/registroApp.php";
+
+            RequestParams params = new RequestParams();
+            params.put("nombre", mNombre);
+            params.put("apellido", mApellido);
+            params.put("usuario", mUsuario);
+            params.put("correo", mCorreo);
+            params.put("localidad", mLocalidad);
+            params.put("edad", mEdad);
+            params.put("genero", mGenero);
+            params.put("password", mPassword);
+            params.put("confirmpass", mPassword);
+
+            client.post(URL, params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                    if (statusCode==200) {
+                        String response = new String(responseBody);
+                        response = response.substring(0,3);
+
+                        flag = Integer.parseInt(response);
+                    }
+                    cancel(true);
+                    onPostExecute(true);
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    flag = 404;
+                    cancel(true);
+                    onPostExecute(true);
+                }
+            });
+
+
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            try {
+                // Simulate network access.
+                Thread.sleep(20000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+
+            if ( flag == 200 ) {
+                Toast.makeText(RegistrarseActivity.this, "!Se registro un nuevo usuario¡", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegistrarseActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+            else {
+                progress_container.setVisibility(View.INVISIBLE);
+                container.setVisibility(View.VISIBLE);
+
+                if (flag==100) {
+                    Toast.makeText(RegistrarseActivity.this, "!El usuario ya existe¡", Toast.LENGTH_SHORT).show();
+                }
+                else if (flag==150) {
+                    Toast.makeText(RegistrarseActivity.this, "!El correo ya existe¡", Toast.LENGTH_SHORT).show();
+                }
+                else if (flag==404) {
+                    Toast.makeText(RegistrarseActivity.this, "No hay conexión a internet", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(RegistrarseActivity.this, "No es posible conectarse al servidor", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            //Here Code
+            super.onPostExecute(aBoolean);
+        }
+
     }
 
 
