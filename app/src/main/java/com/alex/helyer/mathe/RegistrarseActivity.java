@@ -157,45 +157,6 @@ public class RegistrarseActivity extends AppCompatActivity {
         finish();
     }
 
-    private void RegistrarUsuario() {
-
-        AsyncHttpClient client = new AsyncHttpClient();
-        String URL = "https://myappmate.000webhostapp.com/registroApp.php";
-
-        RequestParams params = new RequestParams();
-        params.put("nombre", nombre);
-        params.put("apellido", apellido);
-        params.put("usuario", usuario);
-        params.put("correo", correo);
-        params.put("localidad", localidad);
-        params.put("edad", edad);
-        params.put("genero", genero);
-        params.put("password", password);
-        params.put("confirmpass", confirmpass);
-
-        client.post(URL, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode==200) {
-                    Toast.makeText(RegistrarseActivity.this, new String(responseBody), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegistrarseActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-        });
-
-
-    }
-
-
-
-
-
 
     private class InputValidatorHelper {
 
@@ -275,7 +236,8 @@ public class RegistrarseActivity extends AppCompatActivity {
 
             AsyncHttpClient client = new AsyncHttpClient();
             //String URL = "https://myappmate.000webhostapp.com/registroApp.php";
-            String URL = "http://192.168.22.105/PT_GIT/registroApp.php";
+            //String URL = "http://192.168.22.105/PT_GIT/registroApp.php";
+            String URL = "http://www.appcore.mx/MATHE/registroApp.php";
 
             RequestParams params = new RequestParams();
             params.put("nombre", mNombre);

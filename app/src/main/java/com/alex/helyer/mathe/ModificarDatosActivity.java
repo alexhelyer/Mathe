@@ -116,7 +116,8 @@ public class ModificarDatosActivity extends AppCompatActivity {
 
                 //Realizamos la peticion para guardar los datos
                 AsyncHttpClient client = new AsyncHttpClient();
-                String URL = "http://192.168.22.105/PT_GIT/ActualizarDatos.php";
+                //String URL = "http://192.168.22.105/PT_GIT/ActualizarDatos.php";
+                String URL = "http://www.appcore.mx/MATHE/ActualizarDatos.php";
 
                 RequestParams datos = new RequestParams();
                 datos.put("user", getUser);

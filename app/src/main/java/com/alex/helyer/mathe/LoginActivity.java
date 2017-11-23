@@ -144,7 +144,8 @@ public class LoginActivity extends AppCompatActivity {
 
             AsyncHttpClient client = new AsyncHttpClient();
             //String URL = "https://myappmate.000webhostapp.com/loginapp.php";
-            String URL = "http://192.168.22.105/PT_GIT/loginapp.php";
+            //String URL = "http://192.168.22.105/PT_GIT/loginapp.php";
+            String URL = "http://www.appcore.mx/MATHE/loginapp.php";
 
             RequestParams datos = new RequestParams();
             datos.put("user", mEmail);
@@ -253,7 +254,8 @@ public class LoginActivity extends AppCompatActivity {
                     //Peticion para obtener datos
                     AsyncHttpClient client = new AsyncHttpClient();
                     //String URL = "https://myappmate.000webhostapp.com/getProgreso.php";
-                    String URL = "http://192.168.22.105/PT_GIT/getProgreso.php";
+                    //String URL = "http://192.168.22.105/PT_GIT/getProgreso.php";
+                    String URL = "http://www.appcore.mx/MATHE/getProgreso.php";
 
                     RequestParams datos = new RequestParams();
                     datos.put("user", getUser);

@@ -134,7 +134,8 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
 
     public void getDatosDiagnostico() {
         AsyncHttpClient client = new AsyncHttpClient();
-        String URL = "http://myappmate.000webhostapp.com/sendExamen.php";
+        //String URL = "http://myappmate.000webhostapp.com/sendExamen.php";
+        String URL = "http://www.appcore.mx/MATHE/sendExamen.php";
         RequestParams params = new RequestParams();
 
         client.post(URL, params, new AsyncHttpResponseHandler() {
@@ -174,7 +175,8 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
         AsyncHttpClient client = new AsyncHttpClient();
 
         //String URL = "http://myappmate.000webhostapp.com/setDiagnostico.php";
-        String URL = "http://192.168.22.105/PT_GIT/setDiagnostico.php";
+        //String URL = "http://192.168.22.105/PT_GIT/setDiagnostico.php";
+        String URL = "http://www.appcore.mx/MATHE/setDiagnostico.php";
 
         RequestParams params = new RequestParams();
         params.put("correo", email);
