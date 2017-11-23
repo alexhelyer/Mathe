@@ -28,7 +28,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Herramientas extends Fragment {
 
-    private TextView button;
+    //private TextView button;
     private Switch sonido;
     private Switch vibracion;
     private Boolean stateSonido, stateVibracion;
@@ -46,11 +46,12 @@ public class Herramientas extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Configuración");
 
-        button = (TextView) herramientas.findViewById(R.id.logout);
+        //button = (TextView) herramientas.findViewById(R.id.logout);
         sonido = (Switch) herramientas.findViewById(R.id.switch_sonido);
         vibracion = (Switch) herramientas.findViewById(R.id.switch_vibracion);
 
 
+        /*
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +62,7 @@ public class Herramientas extends Fragment {
                 getActivity().finish();
             }
         });
+        */
 
 
         //Settings

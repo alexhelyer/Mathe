@@ -173,7 +173,8 @@ public class DiagnosticoActivity extends AppCompatActivity implements FragmentTr
     public void setDiagnosticoServer(String email, int value) {
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String URL = "http://myappmate.000webhostapp.com/setDiagnostico.php";
+        //String URL = "http://myappmate.000webhostapp.com/setDiagnostico.php";
+        String URL = "http://192.168.22.105/PT_GIT/setDiagnostico.php";
 
         RequestParams params = new RequestParams();
         params.put("correo", email);

@@ -10,6 +10,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import cz.msebera.android.httpclient.Header;
+
 import static com.loopj.android.http.AsyncHttpClient.log;
 
 public class QuizActivity extends AppCompatActivity implements FragmentTransition {
@@ -123,7 +129,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
             double promedio = getPromedioDatos(datos);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("promedio", ""+promedio).commit();
-            Toast.makeText(this, "Finish: "+datos+" prom:"+promedio, Toast.LENGTH_LONG).show();
+
             int nivel = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getInt("nivel",-1);
             nivel = CheckNivel(promedio,nivel);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
@@ -131,6 +137,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
             //Guardamos los datos del promedio.
             setPromedioGeneral(score);
 
+            //Toast.makeText(this, "Finish: "+datos+" prom:"+promedio, Toast.LENGTH_LONG).show();
 
 
             //Guardamos desempeño del alumno para presentarlo en las graficas.
@@ -140,6 +147,9 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
             //getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("promedio_general", "0-1");
             finish();
+
+
+            guardarProgresoServer();
         }
 
     }
@@ -211,6 +221,42 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         String mi_promedio_general = total + "-" + count ;
         getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("promedio_general",mi_promedio_general).apply();
         return null;
+    }
+
+    private  void guardarProgresoServer() {
+        String getUser =      getSharedPreferences("PERFIL", MODE_PRIVATE).getString("user","user");
+
+        int setPuntos = getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+        int setPerfil = getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getInt("imagen_perfil", 0);
+        String setPromedio = getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("promedio_general", "0-0");
+        String setProgreso = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getString("desempenio","00-00-00-00-00");
+        String setEfectividad = getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("efectividad", "0-0-0");
+
+        //Realizamos la peticion para guardar el progreso en la base de datos.
+        AsyncHttpClient client = new AsyncHttpClient();
+        String URL = "http://192.168.22.105/PT_GIT/GuardarProgreso.php";
+
+        RequestParams datos = new RequestParams();
+        datos.put("user", getUser);
+        datos.put("puntos", setPuntos);
+        datos.put("perfil", setPerfil);
+        datos.put("promedio", setPromedio);
+        datos.put("progreso", setProgreso);
+        datos.put("efectividad", setEfectividad);
+
+        client.get(URL, datos, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode==200) {
+                    Toast.makeText(QuizActivity.this,"Se guardo progreso", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Toast.makeText(QuizActivity.this,"NO SE guardo progreso", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

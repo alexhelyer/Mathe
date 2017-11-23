@@ -70,6 +70,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/linea"/>
 
+        <!--
         <TextView
             android:id="@+id/logout"
             android:layout_width="match_parent"
@@ -80,6 +81,7 @@
             android:textStyle="normal"
             android:textColor="@color/black"
             android:text="Cerrar Sesión"/>
+        -->
 
     </LinearLayout>
 

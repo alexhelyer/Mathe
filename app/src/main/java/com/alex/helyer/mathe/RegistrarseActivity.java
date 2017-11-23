@@ -51,7 +51,7 @@ public class RegistrarseActivity extends AppCompatActivity {
             "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora","Tabasco",
             "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"};
 
-    String[] edades = new String[]{"11 años o menos","11 años","12 años","13 años","14 años","15 años","15 años o más"};
+    String[] edades = new String[]{"11 años o menos","12 años","13 años","14 años","15 años o más"};
 
     String[] generos = new String[]{"Masculino","Femenino"};
 
@@ -274,7 +274,8 @@ public class RegistrarseActivity extends AppCompatActivity {
             //Empezamos con el envio de datos
 
             AsyncHttpClient client = new AsyncHttpClient();
-            String URL = "https://myappmate.000webhostapp.com/registroApp.php";
+            //String URL = "https://myappmate.000webhostapp.com/registroApp.php";
+            String URL = "http://192.168.22.105/PT_GIT/registroApp.php";
 
             RequestParams params = new RequestParams();
             params.put("nombre", mNombre);

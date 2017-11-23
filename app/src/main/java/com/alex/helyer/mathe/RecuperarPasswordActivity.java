@@ -95,7 +95,8 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
             //flag = RecuperarPass(mEmail);
 
             AsyncHttpClient client = new AsyncHttpClient();
-            String URL = "https://myappmate.000webhostapp.com/recuperarpassApp.php";
+            //String URL = "https://myappmate.000webhostapp.com/recuperarpassApp.php";
+            String URL = "http://192.168.22.105/PT_GIT/recuperarpassApp.php";
 
             RequestParams params = new RequestParams();
             params.put("correo", mEmail);

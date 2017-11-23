@@ -196,7 +196,6 @@ public class InicioFragment extends Fragment {
                 ImageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity(),"presiono1",Toast.LENGTH_SHORT).show();
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 1).apply();
                         circleImageView.setImageResource(R.mipmap.sloth);
                     }

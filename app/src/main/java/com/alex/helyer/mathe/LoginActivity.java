@@ -126,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
         public int flag = -1;
         public int nivel = 0;
 
+        String getUser, getNivel;
+
         //Datos Personales
         String nombre, correo, genero, localidad, edad;
         Login(String email, String password) {
@@ -141,7 +143,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
             AsyncHttpClient client = new AsyncHttpClient();
-            String URL = "https://myappmate.000webhostapp.com/loginapp.php";
+            //String URL = "https://myappmate.000webhostapp.com/loginapp.php";
+            String URL = "http://192.168.22.105/PT_GIT/loginapp.php";
 
             RequestParams datos = new RequestParams();
             datos.put("user", mEmail);
@@ -155,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     if (statusCode==200) {
                         String jsonResponse = new String(responseBody);
-                        String getUser, getNivel;
+
                         try {
                             JSONObject jsonobj = new JSONObject(jsonResponse);
                             getUser = jsonobj.getString("usuario");
@@ -218,6 +221,7 @@ public class LoginActivity extends AppCompatActivity {
             if (flag==200) {
                 //Recordamos que ya inicio sesion. Y guardamos datos del usuario.
                 //getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putInt("session_state",1).commit();
+                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("user",getUser).apply();
                 getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("nombre",nombre).apply();
                 getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("correo",correo).apply();
                 getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putString("genero",genero).apply();
@@ -228,6 +232,14 @@ public class LoginActivity extends AppCompatActivity {
                     //Pasamos al Diagnostico
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",1).commit();
 
+
+                    getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putInt("puntos", 0).apply();
+                    getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putInt("imagen_perfil", 1).apply();
+
+                    getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("promedio_general", "0-0").apply();
+                    getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("desempenio", "00-00-00-00-00").apply();
+                    getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("efectividad", "0-0-0").apply();
+
                     Intent intent = new Intent(LoginActivity.this,DiagnosticoActivity.class);
                     startActivity(intent);
                     finish();
@@ -237,9 +249,42 @@ public class LoginActivity extends AppCompatActivity {
                     //Pasamos a HomeActivuty
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
                     getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
-                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                    startActivity(intent);
-                    finish();
+
+                    //Peticion para obtener datos
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    //String URL = "https://myappmate.000webhostapp.com/getProgreso.php";
+                    String URL = "http://192.168.22.105/PT_GIT/getProgreso.php";
+
+                    RequestParams datos = new RequestParams();
+                    datos.put("user", getUser);
+
+                    client.get(URL, datos, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode==200) {
+                                String respuesta = new String(responseBody);
+                                String[] getDato = respuesta.split("/");
+                                //Toast.makeText(LoginActivity.this, getDato[0], Toast.LENGTH_LONG).show();
+                                getSharedPreferences("PERFIL", MODE_PRIVATE).edit().putInt("puntos",Integer.parseInt(getDato[0])).apply();
+                                getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putInt("imagen_perfil", Integer.parseInt(getDato[1])).apply();
+
+                                getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("promedio_general",getDato[2]).apply();
+                                getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("desempenio",getDato[3]).apply();
+                                getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).edit().putString("efectividad", getDato[4]).apply();
+
+                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                            String respuesta = new String(responseBody);
+                        }
+                    });
+
+
                     //Toast.makeText(LoginActivity.this, "Bienvenido Home:"+nivel, Toast.LENGTH_SHORT).show();
                 }
 

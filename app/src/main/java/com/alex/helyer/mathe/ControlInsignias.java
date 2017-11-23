@@ -21,7 +21,7 @@ public class ControlInsignias {
             case 1:
                 AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(context);
                 alertDialog2.setMessage("¡Esta insignia va de nuestra parte!");
-                alertDialog2.setTitle("¡Hola!").show();
+                alertDialog2.setTitle("Terrícola").show();
                 break;
             case 2:
                 if(puntos<100){
@@ -29,7 +29,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 100 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Pensador").show();
                 }
 
                 break;
@@ -39,7 +39,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 }else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 500 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Analista").show();
                 }
                 break;
             case 4:
@@ -48,7 +48,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 1000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Rey").show();
                 }
                 break;
             case 5:
@@ -57,7 +57,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 2000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Explorador").show();
                 }
                 break;
             case 6:
@@ -66,7 +66,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 5000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Conquistador").show();
                 }
                 break;
             case 7:
@@ -75,7 +75,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 10000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Astronauta").show();
                 }
                 break;
             case 8:
@@ -84,7 +84,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 15000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Conquistador de tierras lejanas").show();
                 }
                 break;
             case 9:
@@ -93,7 +93,7 @@ public class ControlInsignias {
                     alertDialog.setTitle("Ups").show();
                 } else{
                     alertDialog.setMessage("¡Bien hecho! Ganaste esta insignia al conseguir 20000 puntos ;)");
-                    alertDialog.setTitle("Ups").show();
+                    alertDialog.setTitle("Campeón Universal").show();
                 }
                 break;
         }
