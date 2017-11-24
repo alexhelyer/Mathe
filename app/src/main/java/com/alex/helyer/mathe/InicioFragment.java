@@ -49,7 +49,9 @@ public class InicioFragment extends Fragment {
     private ViewPager mViewPager;
     private ImageView settingsImage;
     private CircleImageView circleImageView;
-    private ImageView ImageView1,ImageView2,ImageView3,ImageView4,ImageView5,ImageView6;
+    private ImageView ImageView1,ImageView2,ImageView3,ImageView4,ImageView5,ImageView6,
+            ImageView7,ImageView8,ImageView9,ImageView10,ImageView11,ImageView12,ImageView13,
+            ImageView14,ImageView15;
     private TextView puntos;
 
 
@@ -177,6 +179,15 @@ public class InicioFragment extends Fragment {
         ImageView4 = (ImageView)dialogView.findViewById(R.id.image_profile4);
         ImageView5 = (ImageView)dialogView.findViewById(R.id.image_profile5);
         ImageView6 = (ImageView)dialogView.findViewById(R.id.image_profile6);
+        ImageView7 = (ImageView)dialogView.findViewById(R.id.image_profile7);
+        ImageView8 = (ImageView)dialogView.findViewById(R.id.image_profile8);
+        ImageView9 = (ImageView)dialogView.findViewById(R.id.image_profile9);
+        ImageView10 = (ImageView)dialogView.findViewById(R.id.image_profile10);
+        ImageView11 = (ImageView)dialogView.findViewById(R.id.image_profile11);
+        ImageView12 = (ImageView)dialogView.findViewById(R.id.image_profile12);
+        ImageView13 = (ImageView)dialogView.findViewById(R.id.image_profile13);
+        ImageView14 = (ImageView)dialogView.findViewById(R.id.image_profile14);
+        ImageView15 = (ImageView)dialogView.findViewById(R.id.image_profile15);
 
         dialogBuilder.setView(dialogView);
         final AlertDialog alertDialog = dialogBuilder.create();
@@ -192,6 +203,9 @@ public class InicioFragment extends Fragment {
                 alertDialog.setTitle("¡Cambia tu imagen de perfil!");
                 alertDialog.show();
                 //alertDialog.getWindow().setLayout(500,600);
+
+                checkPuntaje();
+
 
                 ImageView1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -235,6 +249,126 @@ public class InicioFragment extends Fragment {
                         circleImageView.setImageResource(R.mipmap.ajolote);
                     }
                 });
+                ImageView7.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 7).apply();
+                        circleImageView.setImageResource(R.mipmap.insignia1);
+                    }
+                });
+                ImageView8.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 100){
+                            ImageView8.setImageResource(R.mipmap.insignia2);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 8).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia2);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 100 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                });
+                ImageView9.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 500){
+                            ImageView9.setImageResource(R.mipmap.insignia3);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 9).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia3);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 500 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView10.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 1000){
+                            ImageView10.setImageResource(R.mipmap.insignia4);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 10).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia4);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 1000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView11.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 2000){
+                            ImageView11.setImageResource(R.mipmap.insignia5);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 11).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia5);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 2000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView12.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 5000){
+                            ImageView12.setImageResource(R.mipmap.insignia6);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 12).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia6);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 5000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView13.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 10000){
+                            ImageView13.setImageResource(R.mipmap.insignia7);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 13).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia7);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 10000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView14.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 15000){
+                            ImageView14.setImageResource(R.mipmap.insignia8);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 14).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia8);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 15000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                ImageView15.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Verificar puntaje
+                        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+                        if(Mispuntos >= 20000){
+                            ImageView15.setImageResource(R.mipmap.insignia9);
+                            getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 15).apply();
+                            circleImageView.setImageResource(R.mipmap.insignia9);
+                        } else{
+                            Toast.makeText(getActivity(), "Consigue 20000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
 
             }
         });
@@ -254,5 +388,32 @@ public class InicioFragment extends Fragment {
 
     }
 
+    public void checkPuntaje(){
+        int Mispuntos = getActivity().getSharedPreferences("PERFIL", MODE_PRIVATE).getInt("puntos",0);
+        if(Mispuntos >= 100){
+            ImageView8.setImageResource(R.mipmap.insignia2);
+        }
+        if(Mispuntos >= 500){
+            ImageView9.setImageResource(R.mipmap.insignia3);
+        }
+        if(Mispuntos >= 1000){
+            ImageView10.setImageResource(R.mipmap.insignia4);
+        }
+        if(Mispuntos >= 2000){
+            ImageView11.setImageResource(R.mipmap.insignia5);
+        }
+        if(Mispuntos >= 5000){
+            ImageView12.setImageResource(R.mipmap.insignia6);
+        }
+        if(Mispuntos >= 10000){
+            ImageView13.setImageResource(R.mipmap.insignia7);
+        }
+        if(Mispuntos >= 15000){
+            ImageView14.setImageResource(R.mipmap.insignia8);
+        }
+        if(Mispuntos >= 20000){
+            ImageView15.setImageResource(R.mipmap.insignia9);
+        }
+    }
 
 }
