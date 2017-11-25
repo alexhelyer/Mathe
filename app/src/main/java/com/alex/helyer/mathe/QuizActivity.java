@@ -14,6 +14,10 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
+
 import cz.msebera.android.httpclient.Header;
 
 import static com.loopj.android.http.AsyncHttpClient.log;
@@ -22,10 +26,10 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
     int flag = 0;
     int count = 0;
-
-
     int score = 0;
+    long milisegundos = 0;
 
+    Date currentTime = Calendar.getInstance().getTime();
 
     //SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
 
@@ -33,6 +37,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(this, ""+currentTime.getTime(),Toast.LENGTH_SHORT).show();
         //Only PORTRAIT(Vertical)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //FullScreen
@@ -120,9 +125,10 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         }
         else if (count == 10) {
             getSupportFragmentManager().beginTransaction().replace(R.id.QuizContent, new ResultadoFragment()).commit();
+            milisegundos = Calendar.getInstance().getTime().getTime() - currentTime.getTime();
         }
         else if (count>10) {
-
+            //Toast.makeText(this,""+milisegundos,Toast.LENGTH_LONG).show(); tiempo del quiz
             String datos = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getString("datos","08-08-08-08-08");
             datos = insertarDato(datos,score);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("datos",datos).commit();
@@ -131,7 +137,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("promedio", ""+promedio).commit();
 
             int nivel = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getInt("nivel",-1);
-            nivel = CheckNivel(promedio,nivel);
+            nivel = CheckNivel(promedio,nivel,milisegundos,score);
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
 
             //Guardamos los datos del promedio.
@@ -189,7 +195,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         return promedio;
 
     }
-    public int CheckNivel(double promedio, int nivel) {
+    public int CheckNivel(double promedio, int nivel, long time, int score) {
 
         if (promedio>8.5) {
             nivel++;
@@ -204,6 +210,13 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
 
             if (nivel<1)
                 nivel = 1;
+
+            getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("datos","08-08-08-08-08").commit();
+        } else if((time<=60000 && score==10 && nivel==1) || (time<=120000 && score==10 && nivel==2)){
+            nivel++;
+
+            if (nivel>3)
+                nivel = 3;
 
             getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putString("datos","08-08-08-08-08").commit();
         }
@@ -259,7 +272,5 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
             }
         });
     }
-
-
 
 }
