@@ -156,6 +156,33 @@ public class InicioFragment extends Fragment {
             case 6:
                 circleImageView.setImageResource(R.mipmap.ajolote);
                 break;
+            case 7:
+                circleImageView.setImageResource(R.mipmap.insignia1);
+                break;
+            case 8:
+                circleImageView.setImageResource(R.mipmap.insignia2);
+                break;
+            case 9:
+                circleImageView.setImageResource(R.mipmap.insignia3);
+                break;
+            case 10:
+                circleImageView.setImageResource(R.mipmap.insignia4);
+                break;
+            case 11:
+                circleImageView.setImageResource(R.mipmap.insignia5);
+                break;
+            case 12:
+                circleImageView.setImageResource(R.mipmap.insignia6);
+                break;
+            case 13:
+                circleImageView.setImageResource(R.mipmap.insignia7);
+                break;
+            case 14:
+                circleImageView.setImageResource(R.mipmap.insignia8);
+                break;
+            case 15:
+                circleImageView.setImageResource(R.mipmap.insignia9);
+                break;
         }
     }
 
