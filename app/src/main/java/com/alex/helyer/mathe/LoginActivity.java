@@ -141,11 +141,9 @@ public class LoginActivity extends AppCompatActivity {
             container.setVisibility(View.INVISIBLE);
             progress.setVisibility(View.VISIBLE);
 
-
+            // TODO: Servicio: Inicio de Sesión
             AsyncHttpClient client = new AsyncHttpClient();
-            //String URL = "https://myappmate.000webhostapp.com/loginapp.php";
-            //String URL = "http://192.168.22.105/PT_GIT/loginapp.php";
-            String URL = "http://www.appcore.mx/MATHE/loginapp.php";
+            String URL = "https://jair-alex.com/mathe/loginapp.php";
 
             RequestParams datos = new RequestParams();
             datos.put("user", mEmail);
@@ -251,11 +249,9 @@ public class LoginActivity extends AppCompatActivity {
                     getSharedPreferences("SESSION", MODE_PRIVATE).edit().putInt("session_state",2).commit();
                     getSharedPreferences("ALGORITMO", MODE_PRIVATE).edit().putInt("nivel",nivel).commit();
 
-                    //Peticion para obtener datos
+                    // TODO: Petición: Obtener progreso de usuario
                     AsyncHttpClient client = new AsyncHttpClient();
-                    //String URL = "https://myappmate.000webhostapp.com/getProgreso.php";
-                    //String URL = "http://192.168.22.105/PT_GIT/getProgreso.php";
-                    String URL = "http://www.appcore.mx/MATHE/getProgreso.php";
+                    String URL = "https://jair-alex.com/mathe/getProgreso.php";
 
                     RequestParams datos = new RequestParams();
                     datos.put("user", getUser);

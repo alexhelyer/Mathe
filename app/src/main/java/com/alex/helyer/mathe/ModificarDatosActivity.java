@@ -114,10 +114,9 @@ public class ModificarDatosActivity extends AppCompatActivity {
                 final int intEdad = Integer.parseInt(setEdad);
 
 
-                //Realizamos la peticion para guardar los datos
+                // TODO: Servicio - Actualizar datos del usuario
                 AsyncHttpClient client = new AsyncHttpClient();
-                //String URL = "http://192.168.22.105/PT_GIT/ActualizarDatos.php";
-                String URL = "http://www.appcore.mx/MATHE/ActualizarDatos.php";
+                String URL = "https://jair-alex.com/mathe/ActualizarDatos.php";
 
                 RequestParams datos = new RequestParams();
                 datos.put("user", getUser);
@@ -177,9 +176,6 @@ public class ModificarDatosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                // todo: goto back activity from here
-                //Toast.makeText(getActivity(), "Back", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().beginTransaction().replace(R.id.content, new AcercaFragment()).commit();
                 this.onBackPressed();
                 return true;
             default:

@@ -117,9 +117,6 @@ public class Herramientas extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                // todo: goto back activity from here
-                //Toast.makeText(getActivity(), "Back", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().beginTransaction().replace(R.id.content, new AcercaFragment()).commit();
                 getActivity().onBackPressed();
                 return true;
             default:

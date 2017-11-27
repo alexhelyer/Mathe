@@ -37,7 +37,7 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(this, ""+currentTime.getTime(),Toast.LENGTH_SHORT).show();
+
         //Only PORTRAIT(Vertical)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //FullScreen
@@ -245,10 +245,9 @@ public class QuizActivity extends AppCompatActivity implements FragmentTransitio
         String setProgreso = getSharedPreferences("ALGORITMO", MODE_PRIVATE).getString("desempenio","00-00-00-00-00");
         String setEfectividad = getSharedPreferences("ESTADISTICAS", MODE_PRIVATE).getString("efectividad", "0-0-0");
 
-        //Realizamos la peticion para guardar el progreso en la base de datos.
+        // TODO: Servicio - Guardar progreso del usuario
         AsyncHttpClient client = new AsyncHttpClient();
-        //String URL = "http://192.168.22.105/PT_GIT/GuardarProgreso.php";
-        String URL = "http://www.appcore.mx/MATHE/GuardarProgreso.php";
+        String URL = "https://jair-alex.com/mathe/GuardarProgreso.php";
 
         RequestParams datos = new RequestParams();
         datos.put("user", getUser);

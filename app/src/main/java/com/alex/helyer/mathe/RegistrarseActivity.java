@@ -234,10 +234,9 @@ public class RegistrarseActivity extends AppCompatActivity {
 
             //Empezamos con el envio de datos
 
+            // TODO: Servicio - Registrar nuevo usuario
             AsyncHttpClient client = new AsyncHttpClient();
-            //String URL = "https://myappmate.000webhostapp.com/registroApp.php";
-            //String URL = "http://192.168.22.105/PT_GIT/registroApp.php";
-            String URL = "http://www.appcore.mx/MATHE/registroApp.php";
+            String URL = "https://jair-alex.com/mathe/registroApp.php";
 
             RequestParams params = new RequestParams();
             params.put("nombre", mNombre);

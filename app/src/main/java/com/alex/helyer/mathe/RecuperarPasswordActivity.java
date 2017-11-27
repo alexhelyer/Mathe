@@ -92,12 +92,9 @@ public class RecuperarPasswordActivity extends AppCompatActivity {
             container.setVisibility(View.INVISIBLE);
             progress.setVisibility(View.VISIBLE);
 
-            //flag = RecuperarPass(mEmail);
-
+            // TODO: Servicio: Recuperar Contraseña
             AsyncHttpClient client = new AsyncHttpClient();
-            //String URL = "https://myappmate.000webhostapp.com/recuperarpassApp.php";
-            //String URL = "http://192.168.22.105/PT_GIT/recuperarpassApp.php";
-            String URL = "http://www.appcore.mx/MATHE/recuperarpassApp.php";
+            String URL = "https://jair-alex.com/mathe/recuperarpassApp.php";
 
             RequestParams params = new RequestParams();
             params.put("correo", mEmail);

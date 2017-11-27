@@ -2,6 +2,7 @@ package com.alex.helyer.mathe;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -216,6 +217,13 @@ public class InicioFragment extends Fragment {
         ImageView14 = (ImageView)dialogView.findViewById(R.id.image_profile14);
         ImageView15 = (ImageView)dialogView.findViewById(R.id.image_profile15);
 
+        dialogBuilder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //
+            }
+        });
+
         dialogBuilder.setView(dialogView);
         final AlertDialog alertDialog = dialogBuilder.create();
 
@@ -239,6 +247,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 1).apply();
                         circleImageView.setImageResource(R.mipmap.sloth);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView2.setOnClickListener(new View.OnClickListener() {
@@ -246,6 +272,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 2).apply();
                         circleImageView.setImageResource(R.mipmap.musk);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView2.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView3.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +297,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 3).apply();
                         circleImageView.setImageResource(R.mipmap.walrus);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView3.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView4.setOnClickListener(new View.OnClickListener() {
@@ -260,6 +322,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 4).apply();
                         circleImageView.setImageResource(R.mipmap.wolf);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView4.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView5.setOnClickListener(new View.OnClickListener() {
@@ -267,6 +347,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 5).apply();
                         circleImageView.setImageResource(R.mipmap.penguin);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView5.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView6.setOnClickListener(new View.OnClickListener() {
@@ -274,6 +372,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 6).apply();
                         circleImageView.setImageResource(R.mipmap.ajolote);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView6.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView7.setOnClickListener(new View.OnClickListener() {
@@ -281,6 +397,24 @@ public class InicioFragment extends Fragment {
                     public void onClick(View v) {
                         getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 7).apply();
                         circleImageView.setImageResource(R.mipmap.insignia1);
+
+                        ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                        ImageView7.setBackgroundColor(Color.parseColor("#EEEEEE"));
                     }
                 });
                 ImageView8.setOnClickListener(new View.OnClickListener() {
@@ -292,6 +426,24 @@ public class InicioFragment extends Fragment {
                             ImageView8.setImageResource(R.mipmap.insignia2);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 8).apply();
                             circleImageView.setImageResource(R.mipmap.insignia2);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView8.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 100 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -307,6 +459,24 @@ public class InicioFragment extends Fragment {
                             ImageView9.setImageResource(R.mipmap.insignia3);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 9).apply();
                             circleImageView.setImageResource(R.mipmap.insignia3);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView9.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 500 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -321,6 +491,24 @@ public class InicioFragment extends Fragment {
                             ImageView10.setImageResource(R.mipmap.insignia4);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 10).apply();
                             circleImageView.setImageResource(R.mipmap.insignia4);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView10.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 1000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -335,6 +523,24 @@ public class InicioFragment extends Fragment {
                             ImageView11.setImageResource(R.mipmap.insignia5);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 11).apply();
                             circleImageView.setImageResource(R.mipmap.insignia5);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView11.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 2000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -349,6 +555,24 @@ public class InicioFragment extends Fragment {
                             ImageView12.setImageResource(R.mipmap.insignia6);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 12).apply();
                             circleImageView.setImageResource(R.mipmap.insignia6);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView12.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 5000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -363,6 +587,24 @@ public class InicioFragment extends Fragment {
                             ImageView13.setImageResource(R.mipmap.insignia7);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 13).apply();
                             circleImageView.setImageResource(R.mipmap.insignia7);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView13.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 10000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -377,6 +619,24 @@ public class InicioFragment extends Fragment {
                             ImageView14.setImageResource(R.mipmap.insignia8);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 14).apply();
                             circleImageView.setImageResource(R.mipmap.insignia8);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView14.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 15000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }
@@ -391,6 +651,24 @@ public class InicioFragment extends Fragment {
                             ImageView15.setImageResource(R.mipmap.insignia9);
                             getActivity().getSharedPreferences("ESTADISTICAS", Context.MODE_PRIVATE).edit().putInt("imagen_perfil", 15).apply();
                             circleImageView.setImageResource(R.mipmap.insignia9);
+
+                            ImageView1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView2.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView8.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView9.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView10.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView11.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView12.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView13.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView14.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            ImageView15.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+                            ImageView15.setBackgroundColor(Color.parseColor("#EEEEEE"));
                         } else{
                             Toast.makeText(getActivity(), "Consigue 20000 puntos para desbloquear esta insignia",Toast.LENGTH_LONG).show();
                         }

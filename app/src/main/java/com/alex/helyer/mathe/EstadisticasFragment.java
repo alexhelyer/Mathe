@@ -76,7 +76,7 @@ public class EstadisticasFragment extends Fragment {
         PromedioGeneral = (TextView) rootView.findViewById(R.id.txtPromedioGeneral);
 
         int nivel = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getInt("nivel",-1);
-        String datos = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("datos","07-08-07-08-07");
+        String datos = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("datos","08-08-08-08-08");
         String txtPromedio = getActivity().getSharedPreferences("ALGORITMO", Context.MODE_PRIVATE).getString("promedio", "0");
         double promporcent = Double.parseDouble(txtPromedio)*10;
 
@@ -93,7 +93,10 @@ public class EstadisticasFragment extends Fragment {
         //PromedioGeneral.setText(txtPromedioGeneral);
 
         //Promedio.setDonut_progress(Integer.toString(procent));
-        PromedioGenerales.setDonut_progress( Integer.toString((int)(getPromedioGeneral(txtPromedioGeneral)*10)) );
+        if ( txtPromedioGeneral.contentEquals("0-0") )
+            PromedioGenerales.setDonut_progress("0");
+        else
+            PromedioGenerales.setDonut_progress( Integer.toString((int)(getPromedioGeneral(txtPromedioGeneral)*10)) );
 
 
 
